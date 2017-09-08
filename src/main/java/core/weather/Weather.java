@@ -13,18 +13,17 @@ public class Weather {
     private Double pressure;
     private Double seaLevel;
     private Double groundLevel;
-    private Double humidity;
+    private Integer humidity;
     private String weather;
     private String weatherDescription;
-    private double cloudiness;
+    private Integer cloudiness;
     private double rain;
     private double snow;
     private Wind wind;
 
     /**
      * Constructor
-     *
-     * @param date Time of effective weather
+     *  @param date Time of effective weather
      * @param temperature Temperature
      * @param pressure Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data), hPa
      * @param seaLevel Atmospheric pressure on the sea level, hPa
@@ -38,7 +37,7 @@ public class Weather {
      * @param wind Wind
      */
     public Weather(Date date, Temperature temperature, Double pressure, Double seaLevel, Double groundLevel,
-                   Double humidity, String weather, String weatherDescription, double cloudiness, double rain,
+                   Integer humidity, String weather, String weatherDescription, Integer cloudiness, double rain,
                    double snow, Wind wind) {
         this.date = date;
         this.temperature = temperature;
@@ -68,7 +67,7 @@ public class Weather {
      * @param wind Snow volume for the last 3 hours
      */
     public Weather(Date date, Temperature temperature, Double pressure, Double seaLevel, Double groundLevel,
-                   Double humidity, String weather, String weatherDescription, double cloudiness, Wind wind) {
+                   Integer humidity, String weather, String weatherDescription, Integer cloudiness, Wind wind) {
         this.date = date;
         this.temperature = temperature;
         this.pressure = pressure;
@@ -127,11 +126,11 @@ public class Weather {
         this.groundLevel = groundLevel;
     }
 
-    public Double getHumidity() {
+    public Integer getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(Double humidity) {
+    public void setHumidity(Integer humidity) {
         this.humidity = humidity;
     }
 
@@ -155,7 +154,7 @@ public class Weather {
         return cloudiness;
     }
 
-    public void setCloudiness(double cloudiness) {
+    public void setCloudiness(Integer cloudiness) {
         this.cloudiness = cloudiness;
     }
 
