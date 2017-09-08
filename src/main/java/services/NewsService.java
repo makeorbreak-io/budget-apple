@@ -50,11 +50,7 @@ public class NewsService {
 
             //Adds parsed news to the list
             parseNews(jsonResponse, news);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (java.text.ParseException e) {
+        } catch (IOException | java.text.ParseException | ParseException e) {
             e.printStackTrace();
         }
 

@@ -36,7 +36,7 @@ public class ForecastService {
      * @return forescast for the next 5 days
      */
     public Forecast getForecast(String cityId){
-        LinkedList<Weather> listWeathers = new LinkedList<Weather>();
+        LinkedList<Weather> listWeathers = new LinkedList<>();
         RestService restService = new RestService();
 
         try {
@@ -49,9 +49,7 @@ public class ForecastService {
                 listWeathers.add(parseWeather((JSONObject) obj));
             }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
 
@@ -59,6 +57,12 @@ public class ForecastService {
         return forecast;
     }
 
+    /**
+     * Parse weather from json object
+     *
+     * @param jsonWeather
+     * @return Weather
+     */
     private Weather parseWeather(JSONObject jsonWeather){
         Weather weather = new Weather();
         weather.setDate(new Date((Integer) jsonWeather.get("dt")));
