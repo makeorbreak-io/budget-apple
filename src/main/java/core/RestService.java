@@ -4,7 +4,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -12,67 +11,24 @@ import org.json.simple.parser.ParseException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Miguel Cardoso
  * @project pidrobe
  */
-public class RestClient extends Thread {
-
-    private static final String APPLICATION_SERVER_URL = "http://localhost:8080/rest";
-
-    private static final String CONTROLLER_ACCESS_GET_URL = "https://newsapi.org/v1/articles?source=techcrunch&apiKey=2d183a8bd561481aba8065ae504d88ac";
-
-    private static final int CONNECTION_SLEEP_TIME = 5000;
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy HH:mm:ss");
+public class RestService extends Thread {
 
     /**
      * Constructor
      *
      */
-    public RestClient() {
+    public RestService() {
 
     }
 
-    //TESTING PURPOSES
-    public static void main(String[] args) {
-        RestClient restClient = new RestClient();
-        restClient.start();
-    }
-
-    /**
-     * Run method.
-     * <p>
-     * In cycles with sleep time, it will perform a GET Request.
-     */
-    public void run() {
-        while (true) {
-            try {
-                String response = consumeAppRest(CONTROLLER_ACCESS_GET_URL);
-
-                System.out.println(response);
-                parseJsonResponse(response);
-
-
-            } catch (IOException e) {
-                //   System.out.println("Server did not respond. Trying again in " + (CONNECTION_SLEEP_TIME / 1000) + " seconds.");
-            } catch (ParseException e) {
-                System.out.println("Json message came corrupted.");
-                e.printStackTrace();
-            }
-
-
-            try {
-                // System.out.println("---------------------------- SLEEPING --------------------------------");
-
-                sleep(CONNECTION_SLEEP_TIME);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+    JSONObject sendGet(String url) throws IOException, ParseException {
+        String response = consumeAppRest(url);
+        return parseJsonObjResponse(response);
     }
 
     /**
@@ -112,15 +68,15 @@ public class RestClient extends Thread {
      * Will parse Json Reservation Response.
      *
      * @param jsonMessage String with Json Message
-     * @return List of Reservations read.
+     * @return Json object
      * @throws ParseException
      */
-    private void parseJsonResponse(String jsonMessage) throws ParseException, IOException {
+    private JSONObject parseJsonObjResponse(String jsonMessage) throws ParseException, IOException {
         JSONParser parser = new JSONParser();
         Object obj = parser.parse(jsonMessage);
         JSONObject jsonObject = (JSONObject) obj;
 
-        JSONArray list = (JSONArray) jsonObject.get("reservations");
+        return jsonObject;
     }
 }
 
