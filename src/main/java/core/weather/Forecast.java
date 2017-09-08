@@ -1,6 +1,6 @@
 package core.weather;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * @author Luis on 08/09/2017.
@@ -8,18 +8,22 @@ import java.util.ArrayList;
  */
 public class Forecast {
 
-    private ArrayList<Weather> forecast;
+    private LinkedList<Weather> forecast;
 
     /**
      * Constructor
      *
      * @param forecast list of weathers that built the forecast
      */
-    public Forecast(ArrayList<Weather> forecast) {
+    public Forecast(LinkedList<Weather> forecast) {
         this.forecast = forecast;
     }
 
-    public ArrayList<Weather> getForecast() {
+    public void setForecast(LinkedList<Weather> forecast) {
+        this.forecast = forecast;
+    }
+
+    public LinkedList<Weather> getForecast() {
         return forecast;
     }
 

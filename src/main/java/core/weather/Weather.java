@@ -175,6 +175,14 @@ public class Weather {
         this.wind = wind;
     }
 
+    public double getSnow() {
+        return snow;
+    }
+
+    public void setSnow(double snow) {
+        this.snow = snow;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
