@@ -1,5 +1,7 @@
 # PiDrobe
 
+This project is part of the Hackthon Porto Summer of Code - Make or Break.
+
 This application will create an outfit from the available user wardrobe, depending on the Weather and time of the Year.
 
 ## Features
