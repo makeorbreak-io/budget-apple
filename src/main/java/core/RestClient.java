@@ -24,32 +24,22 @@ public class RestClient extends Thread {
 
     private static final String APPLICATION_SERVER_URL = "http://localhost:8080/rest";
 
-    private static final String CONTROLLER_ACCESS_GET_URL = " https://newsapi.org/v1/articles?source=techcrunch&apiKey=2d183a8bd561481aba8065ae504d88ac";
+    private static final String CONTROLLER_ACCESS_GET_URL = "https://newsapi.org/v1/articles?source=techcrunch&apiKey=2d183a8bd561481aba8065ae504d88ac";
 
     private static final int CONNECTION_SLEEP_TIME = 5000;
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy HH:mm:ss");
-    private final List<String> facilities;
-    private final int until_days;
 
     /**
      * Constructor
      *
-     * @param facilities list of facilities to use in GET
-     * @param until_days future days to ask
      */
-    public RestClient(List<String> facilities, int until_days) {
-        this.facilities = facilities;
-        this.until_days = until_days;
+    public RestClient() {
+
     }
 
     //TESTING PURPOSES
     public static void main(String[] args) {
-        ArrayList<String> facilities = new ArrayList<>();
-
-        facilities.add("Piscinas Olimpicas");
-        facilities.add("Recinto de Basquetebol");
-
-        RestClient restClient = new RestClient(facilities, 1);
+        RestClient restClient = new RestClient();
         restClient.start();
     }
 
@@ -61,7 +51,7 @@ public class RestClient extends Thread {
     public void run() {
         while (true) {
             try {
-                String response = consumeAppRest(constructGetURL());
+                String response = consumeAppRest(CONTROLLER_ACCESS_GET_URL);
 
                 System.out.println(response);
                 parseJsonResponse(response);
@@ -92,7 +82,6 @@ public class RestClient extends Thread {
      * @throws IOException
      */
     private String consumeAppRest(String url) throws IOException {
-
         // create HTTP Client
         HttpClient httpClient = HttpClientBuilder.create().build();
 
@@ -117,35 +106,6 @@ public class RestClient extends Thread {
         }
 
         return output.toString();
-    }
-
-    /**
-     * Constructs URL for the access GET REST request.
-     * Appending the list of facilities to the parameters and
-     * the days to ask in the future.
-     *
-     * @return String without space chars.
-     */
-    private String constructGetURL() {
-        StringBuilder urlBuilder = new StringBuilder();
-
-        urlBuilder.append(APPLICATION_SERVER_URL);
-        urlBuilder.append(CONTROLLER_ACCESS_GET_URL);
-
-        //add parameters
-        urlBuilder.append("?");
-
-        for (String facility : facilities) {
-            urlBuilder.append("facility=" + facility);
-            urlBuilder.append("&");
-        }
-
-        urlBuilder.append("until=" + until_days);
-
-        //replace spaces with plus char to avoid HTTP url errors
-        String url = urlBuilder.toString().replace(" ", "+");
-
-        return url;
     }
 
     /**
