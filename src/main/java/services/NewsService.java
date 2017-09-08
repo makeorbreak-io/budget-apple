@@ -1,6 +1,7 @@
 package services;
 
 import core.newsfeed.News;
+import core.newsfeed.NewsFeed;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -10,8 +11,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Created by Miguel Cardoso on 08/09/2017.
@@ -37,9 +36,9 @@ public class NewsService {
      * @param sourceID Source
      * @return List of news
      */
-    public List<News> getNews(String sourceID) {
+    public NewsFeed getNews(String sourceID) {
         RestService restService = new RestService();
-        List<News> news = new LinkedList<>();
+        NewsFeed newsFeed = new NewsFeed();
 
         try {
             //Gets the source by the sourceID
@@ -48,13 +47,13 @@ public class NewsService {
 
             jsonResponse = restService.sendGet(ARTICLES_URL + "?source=" + sourceID + "&apiKey=" + apiKey);
 
-            //Adds parsed news to the list
-            parseNews(jsonResponse, news);
+            //Adds parsed news to the news feed
+            parseNews(jsonResponse, newsFeed);
         } catch (IOException | java.text.ParseException | ParseException e) {
             e.printStackTrace();
         }
 
-        return news;
+        return newsFeed;
     }
 
     /**
@@ -64,7 +63,7 @@ public class NewsService {
      * @return
      * @throws ParseException
      */
-    private void parseNews(JSONObject jsonObject, List<News> news) throws ParseException, IOException, java.text.ParseException {
+    private void parseNews(JSONObject jsonObject, NewsFeed newsFeed) throws ParseException, IOException, java.text.ParseException {
         JSONArray articleList = (JSONArray) jsonObject.get("articles");
 
         for (Object jsonObj : articleList) {
@@ -79,7 +78,7 @@ public class NewsService {
             Calendar publishedAt = getPublishedAt((JSONObject) jsonObj);
 
             //Adds news to the list
-            news.add(createNews(title, urlToImage, publishedAt));
+            newsFeed.addNews(createNews(title, urlToImage, publishedAt));
         }
     }
 
