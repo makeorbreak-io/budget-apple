@@ -81,6 +81,12 @@ public class Weather {
         this.wind = wind;
     }
 
+    /**
+     * Empty Constructor
+     */
+    public Weather() {
+    }
+
     public Date getDate() {
         return date;
     }
