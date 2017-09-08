@@ -1,12 +1,13 @@
 package core.weather;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
  * @author Luis on 08/09/2017.
  * @project pidrobe
  */
-public class Forecast {
+public class Forecast implements Serializable {
 
     private LinkedList<Weather> forecast;
 

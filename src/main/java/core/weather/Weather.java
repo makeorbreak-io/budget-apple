@@ -1,12 +1,13 @@
 package core.weather;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author Luis on 08/09/2017.
  * @project pidrobe
  */
-public class Weather {
+public class Weather implements Serializable {
 
     private Date date;
     private Temperature temperature;

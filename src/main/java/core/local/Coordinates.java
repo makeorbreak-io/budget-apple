@@ -1,10 +1,12 @@
 package core.local;
 
+import java.io.Serializable;
+
 /**
  * @author Luis on 08/09/2017.
  * @project pidrobe
  */
-public class Coordinates {
+public class Coordinates implements Serializable {
 
     private double lon;
     private double lat;

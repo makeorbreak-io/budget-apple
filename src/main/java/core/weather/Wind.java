@@ -1,10 +1,12 @@
 package core.weather;
 
+import java.io.Serializable;
+
 /**
  * @author Luis on 08/09/2017.
  * @project pidrobe
  */
-public class Wind {
+public class Wind implements Serializable {
 
     private double speed;
     private double direction;

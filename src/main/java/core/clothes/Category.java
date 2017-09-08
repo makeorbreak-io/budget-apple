@@ -1,9 +1,11 @@
 package core.clothes;
 
+import java.io.Serializable;
+
 /**
  * Created by Miguel Cardoso on 08/09/2017.
  */
-public class Category {
+public class Category implements Serializable {
     private String category;
 
     public Category(String category){

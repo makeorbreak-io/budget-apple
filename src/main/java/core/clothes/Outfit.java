@@ -1,12 +1,13 @@
 package core.clothes;
 
+import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
  * Created by Miguel Cardoso on 08/09/2017.
  */
-public class Outfit {
+public class Outfit implements Serializable {
 
     /**
      * Links the order of clothing to the item. Example: 0 - T-Shirt, 1 - Shirt on top of T-Shirt, 2 - Coat

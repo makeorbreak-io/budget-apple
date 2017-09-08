@@ -1,12 +1,13 @@
 package core.newsfeed;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Created by Miguel Cardoso on 08/09/2017.
  */
-public class NewsFeed {
+public class NewsFeed implements Serializable {
 
     private final List<News> newsList;
 

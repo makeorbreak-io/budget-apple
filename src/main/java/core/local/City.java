@@ -1,10 +1,12 @@
 package core.local;
 
+import java.io.Serializable;
+
 /**
  * @author Luis on 08/09/2017.
  * @project pidrobe
  */
-public class City {
+public class City implements Serializable {
 
     private String id;
     private String name;

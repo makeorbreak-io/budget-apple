@@ -2,6 +2,7 @@ package core.newsfeed;
 
 import sun.awt.image.URLImageSource;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Calendar;
  * @author ricardo
  * @project pidrobe
  */
-public class News {
+public class News implements Serializable {
 
     /**
      * News feed source

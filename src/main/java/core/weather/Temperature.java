@@ -1,10 +1,12 @@
 package core.weather;
 
+import java.io.Serializable;
+
 /**
  * @author Luis on 08/09/2017.
  * @project pidrobe
  */
-public class Temperature {
+public class Temperature implements Serializable {
 
     private Double current;
     private Double minimum;
