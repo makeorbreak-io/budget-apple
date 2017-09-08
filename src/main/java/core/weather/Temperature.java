@@ -46,4 +46,24 @@ public class Temperature {
     public void setMaximum(Double maximum) {
         this.maximum = maximum;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Temperature that = (Temperature) o;
+
+        if (current != null ? !current.equals(that.current) : that.current != null) return false;
+        if (minimum != null ? !minimum.equals(that.minimum) : that.minimum != null) return false;
+        return maximum != null ? maximum.equals(that.maximum) : that.maximum == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = current != null ? current.hashCode() : 0;
+        result = 31 * result + (minimum != null ? minimum.hashCode() : 0);
+        result = 31 * result + (maximum != null ? maximum.hashCode() : 0);
+        return result;
+    }
 }

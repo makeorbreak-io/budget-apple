@@ -168,4 +168,50 @@ public class Weather {
     public void setWind(Wind wind) {
         this.wind = wind;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Weather weather1 = (Weather) o;
+
+        if (Double.compare(weather1.cloudiness, cloudiness) != 0) return false;
+        if (Double.compare(weather1.rain, rain) != 0) return false;
+        if (Double.compare(weather1.snow, snow) != 0) return false;
+        if (date != null ? !date.equals(weather1.date) : weather1.date != null) return false;
+        if (temperature != null ? !temperature.equals(weather1.temperature) : weather1.temperature != null)
+            return false;
+        if (pressure != null ? !pressure.equals(weather1.pressure) : weather1.pressure != null) return false;
+        if (seaLevel != null ? !seaLevel.equals(weather1.seaLevel) : weather1.seaLevel != null) return false;
+        if (groundLevel != null ? !groundLevel.equals(weather1.groundLevel) : weather1.groundLevel != null)
+            return false;
+        if (humidity != null ? !humidity.equals(weather1.humidity) : weather1.humidity != null) return false;
+        if (weather != null ? !weather.equals(weather1.weather) : weather1.weather != null) return false;
+        if (weatherDescription != null ? !weatherDescription.equals(weather1.weatherDescription) : weather1.weatherDescription != null)
+            return false;
+        return wind != null ? wind.equals(weather1.wind) : weather1.wind == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = date != null ? date.hashCode() : 0;
+        result = 31 * result + (temperature != null ? temperature.hashCode() : 0);
+        result = 31 * result + (pressure != null ? pressure.hashCode() : 0);
+        result = 31 * result + (seaLevel != null ? seaLevel.hashCode() : 0);
+        result = 31 * result + (groundLevel != null ? groundLevel.hashCode() : 0);
+        result = 31 * result + (humidity != null ? humidity.hashCode() : 0);
+        result = 31 * result + (weather != null ? weather.hashCode() : 0);
+        result = 31 * result + (weatherDescription != null ? weatherDescription.hashCode() : 0);
+        temp = Double.doubleToLongBits(cloudiness);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(rain);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(snow);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (wind != null ? wind.hashCode() : 0);
+        return result;
+    }
 }
