@@ -6,6 +6,7 @@ import java.util.Calendar;
 
 /**
  * Class that represents a news feed containing source, title, date and an image
+ *
  * @author ricardo
  * @project pidrobe
  */
@@ -31,10 +32,10 @@ public class News {
     /**
      * Default constructor for a news feed
      *
-     * @param source news feed source
-     * @param title news feed title
+     * @param source      news feed source
+     * @param title       news feed title
      * @param publishedAt date
-     * @param imageURL imageURL
+     * @param imageURL    imageURL
      */
     public News(String source, String title, Calendar publishedAt, URLImageSource imageURL) {
         this.source = source;
@@ -44,8 +45,8 @@ public class News {
     }
 
     //GETTERS
+
     /**
-     *
      * @return news source
      */
     public String getSource() {
@@ -53,7 +54,6 @@ public class News {
     }
 
     /**
-     *
      * @return news title
      */
     public String getTitle() {
@@ -61,7 +61,6 @@ public class News {
     }
 
     /**
-     *
      * @return news feed date
      */
     public Calendar getPublishedAt() {
@@ -69,7 +68,6 @@ public class News {
     }
 
     /**
-     *
      * @return news feed imageURL
      */
     public URLImageSource getImageURL() {
@@ -77,7 +75,6 @@ public class News {
     }
 
     /**
-     *
      * @param o
      * @return true if equal
      */
@@ -95,7 +92,6 @@ public class News {
     }
 
     /**
-     *
      * @return hashcode
      */
     @Override
@@ -105,5 +101,13 @@ public class News {
         result = 31 * result + publishedAt.hashCode();
         result = 31 * result + imageURL.hashCode();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "\nSource: " + source +
+                "\nTitle: " + title +
+                "\nPublished at: " + publishedAt.getTime() +
+                "\nImage url: " + imageURL.toString();
     }
 }
