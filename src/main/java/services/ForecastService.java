@@ -69,31 +69,35 @@ public class ForecastService {
 
         JSONObject main = (JSONObject) jsonWeather.get("main");
         Temperature temperature = new Temperature(
-                Double.parseDouble((String) main.get("temp")),
-                Double.parseDouble((String) main.get("temp_min")),
-                Double.parseDouble((String) main.get("temp_max"))
+                (Double) main.get("temp"),
+                (Double) main.get("temp_min"),
+                (Double) main.get("temp_max")
         );
         weather.setTemperature(temperature);
-        weather.setPressure(Double.parseDouble((String) main.get("pressure")));
-        weather.setSeaLevel(Double.parseDouble((String) main.get("sea_level")));
-        weather.setGroundLevel(Double.parseDouble((String) main.get("grnd_level")));
-        weather.setHumidity(Integer.parseInt((String) main.get("humidity")));
+        weather.setPressure((Double) main.get("pressure"));
+        if(main.get("sea_level") instanceof Long){
+            weather.setSeaLevel(((Long) main.get("sea_level")).doubleValue());
+        }else{
+            weather.setSeaLevel((Double) main.get("sea_level"));
+        }
+        weather.setGroundLevel((Double) main.get("grnd_level"));
+        weather.setHumidity(Math.toIntExact((Long) main.get("humidity")));
 
         JSONObject wt = (JSONObject) ((JSONArray) jsonWeather.get("weather")).get(0);
         weather.setWeather((String) wt.get("main"));
         weather.setWeatherDescription((String) wt.get("description"));
 
         JSONObject clouds = (JSONObject) jsonWeather.get("clouds");
-        weather.setCloudiness(Integer.parseInt((String) clouds.get("all")));
+        weather.setCloudiness(Math.toIntExact((Long) clouds.get("all")));
 
         JSONObject rain = (JSONObject) jsonWeather.get("rain");
-        if(rain != null){
-            weather.setRain(Double.parseDouble((String) rain.get("3h")));
+        if(rain != null &&  rain.get("3h") != null){
+            weather.setRain((Double) rain.get("3h"));
         }
 
         JSONObject snow = (JSONObject) jsonWeather.get("snow");
         if(snow != null){
-            weather.setSnow(Double.parseDouble((String) rain.get("3h")));
+            weather.setSnow((Double) rain.get("3h"));
         }
 
         return weather;
