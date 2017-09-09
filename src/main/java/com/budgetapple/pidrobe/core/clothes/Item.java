@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class Item implements Serializable {
     private Category category;
 
-    private String name;
+    private int id;
 
     private String colorHexa;
 
@@ -27,13 +27,13 @@ public class Item implements Serializable {
 
     @JsonCreator
     public Item(@JsonProperty("category") Category category,
-                @JsonProperty("name") String name,
+                @JsonProperty("id") int id,
                 @JsonProperty("image") String imageBase64,
                 @JsonProperty("color_hexa") String colorHexa,
                 @JsonProperty("temperature_index") int temperatureIndex,
                 @JsonProperty("available") boolean isAvailable) {
         this.category = category;
-        this.name = name;
+        this.id = id;
         this.imageBase64 = imageBase64;
         this.colorHexa = colorHexa;
         this.temperatureIndex = temperatureIndex;
@@ -48,12 +48,12 @@ public class Item implements Serializable {
         this.category = category;
     }
 
-    public String getName() {
-        return name;
+    public int getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getImageBase64() {
@@ -96,9 +96,9 @@ public class Item implements Serializable {
 
         Item item = (Item) o;
 
+        if (id != item.id) return false;
         if (temperatureIndex != item.temperatureIndex) return false;
         if (category != null ? !category.equals(item.category) : item.category != null) return false;
-        if (name != null ? !name.equals(item.name) : item.name != null) return false;
         if (colorHexa != null ? !colorHexa.equals(item.colorHexa) : item.colorHexa != null) return false;
         return imageBase64 != null ? imageBase64.equals(item.imageBase64) : item.imageBase64 == null;
     }
@@ -106,7 +106,7 @@ public class Item implements Serializable {
     @Override
     public int hashCode() {
         int result = category != null ? category.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + id;
         result = 31 * result + (colorHexa != null ? colorHexa.hashCode() : 0);
         result = 31 * result + temperatureIndex;
         result = 31 * result + (imageBase64 != null ? imageBase64.hashCode() : 0);
@@ -117,7 +117,7 @@ public class Item implements Serializable {
     public String toString() {
         return "Item{" +
                 "category=" + category +
-                ", name='" + name + '\'' +
+                ", id='" + id + '\'' +
                 ", colorHexa=" + colorHexa +
                 ", temperatureIndex=" + temperatureIndex +
                 ", imageBase64=" + imageBase64 +

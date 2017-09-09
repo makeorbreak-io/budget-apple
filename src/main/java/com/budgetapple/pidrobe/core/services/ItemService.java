@@ -26,7 +26,7 @@ public class ItemService {
         for (Item i :
                 items) {
             JSONObject object = new JSONObject();
-            object.put("name", i.getName());
+            object.put("id", i.getId());
             JSONObject category = new JSONObject();
             category.put("category", i.getCategory().getName());
             object.put("category",category);

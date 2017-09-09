@@ -4,7 +4,6 @@ import com.budgetapple.pidrobe.PiDrobe;
 import com.budgetapple.pidrobe.core.clothes.Category;
 import com.budgetapple.pidrobe.core.clothes.Item;
 
-import java.awt.*;
 import java.util.List;
 
 /**
@@ -27,10 +26,6 @@ public class CreateItemController {
 
     public void chooseCategory(Category category){
         this.item.setCategory(category);
-    }
-
-    public void setName(String name){
-        this.item.setName(name);
     }
 
     public void setImage(String image){
