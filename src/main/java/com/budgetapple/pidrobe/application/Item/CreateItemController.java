@@ -16,8 +16,8 @@ public class CreateItemController {
 
     private final Item item;
 
-    public CreateItemController(PiDrobe piDrobe){
-        this.piDrobe = piDrobe;
+    public CreateItemController(){
+        this.piDrobe = PiDrobe.getInstance();
         this.item = new Item();
     }
 

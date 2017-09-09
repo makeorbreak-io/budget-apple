@@ -16,8 +16,8 @@ public class EditItemController {
 
     private final Item item;
 
-    public EditItemController(PiDrobe piDrobe, Item item) {
-        this.piDrobe = piDrobe;
+    public EditItemController(Item item) {
+        this.piDrobe = PiDrobe.getInstance();
         this.item = item;
     }
 

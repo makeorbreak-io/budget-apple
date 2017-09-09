@@ -2,8 +2,8 @@ package com.budgetapple.pidrobe;
 
 import com.budgetapple.pidrobe.core.clothes.Category;
 import com.budgetapple.pidrobe.core.clothes.Item;
-import com.budgetapple.pidrobe.core.clothes.Outfit;
 import com.budgetapple.pidrobe.core.clothes.Preset;
+import com.budgetapple.pidrobe.core.utils.IO;
 
 import java.io.Serializable;
 import java.util.LinkedList;
@@ -14,16 +14,45 @@ import java.util.List;
  */
 public class PiDrobe implements Serializable {
 
+    private static PiDrobe instance;
+
     private List<Item> allItems;
 
     private List<Category> allCategories;
 
     private List<Preset> allPresets;
 
-    public PiDrobe() {
+    private PiDrobe() {
+        bootUp();
+    }
+
+    public static PiDrobe getInstance() {
+        if (instance == null) {
+            instance = new PiDrobe();
+        }
+
+        return instance;
+    }
+
+    private void bootUp() {
         this.allItems = new LinkedList<>();
         this.allPresets = new LinkedList<>();
         this.allCategories = new LinkedList<>();
+
+        load();
+    }
+
+    private void load() {
+        try {
+            PiDrobe piDrobe = (PiDrobe) IO.readBinFile("temp");
+
+            this.setAllCategories(piDrobe.allCategories);
+            this.setAllItems(piDrobe.allItems);
+            this.setAllPresets(piDrobe.allPresets);
+
+        } catch (Exception e) {
+            System.out.println("No configuration file found. New instance created.");
+        }
     }
 
     public boolean addItem(Item item) {

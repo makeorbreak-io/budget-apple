@@ -10,12 +10,12 @@ public class IO {
     public static void writeToBinFile(String fileName, Object object) throws IOException {
         FileOutputStream fos = new FileOutputStream(fileName);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
-        
+
         oos.writeObject(object);
         oos.close();
     }
 
-    public static Object readBinFile(String fileName) throws IOException {
+    public static Object readBinFile(String fileName) throws IOException, ClassNotFoundException {
         ObjectInputStream objectinputstream = null;
         Object object = null;
 
@@ -27,8 +27,6 @@ public class IO {
             FileInputStream streamIn = new FileInputStream(path);
             objectinputstream = new ObjectInputStream(streamIn);
             object = objectinputstream.readObject();
-        } catch (Exception e) {
-            e.printStackTrace();
         } finally {
             if (objectinputstream != null) {
                 objectinputstream.close();

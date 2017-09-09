@@ -15,8 +15,8 @@ public class CreateOutfitPresetController {
     private final PiDrobe piDrobe;
     private final Outfit outfit;
 
-    public CreateOutfitPresetController(PiDrobe piDrobe) {
-        this.piDrobe = piDrobe;
+    public CreateOutfitPresetController() {
+        this.piDrobe = PiDrobe.getInstance();
         this.outfit = new Outfit();
     }
 
@@ -38,7 +38,7 @@ public class CreateOutfitPresetController {
 
     public boolean save(String name) {
         Preset preset = new Preset(outfit, name);
-        
+
         return piDrobe.addPreset(preset);
     }
 }
