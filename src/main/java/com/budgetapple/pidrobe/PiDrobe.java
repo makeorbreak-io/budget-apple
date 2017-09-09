@@ -3,7 +3,11 @@ package com.budgetapple.pidrobe;
 import com.budgetapple.pidrobe.core.clothes.Category;
 import com.budgetapple.pidrobe.core.clothes.Item;
 import com.budgetapple.pidrobe.core.clothes.Preset;
+import com.budgetapple.pidrobe.core.newsfeed.NewsFeed;
+import com.budgetapple.pidrobe.core.services.ForecastService;
+import com.budgetapple.pidrobe.core.services.NewsService;
 import com.budgetapple.pidrobe.core.utils.IO;
+import com.budgetapple.pidrobe.core.weather.Forecast;
 
 import java.io.Serializable;
 import java.util.LinkedList;
@@ -101,5 +105,13 @@ public class PiDrobe implements Serializable {
 
     public boolean removePreset(Preset preset) {
         return this.allPresets.remove(preset);
+    }
+
+    public Forecast getForecast() {
+        return ForecastService.getForecast();
+    }
+
+    public NewsFeed getNewsFeed() {
+        return NewsService.getNews();
     }
 }

@@ -14,13 +14,16 @@ import java.util.Calendar;
 /**
  * Created by Miguel Cardoso on 08/09/2017.
  */
-public class NewsService {
+public class NewsService extends Thread {
 
     private static final String ARTICLES_URL = "https://newsapi.org/v1/articles";
     private static final String SOURCES_URL = "https://newsapi.org/v1/sources?language=en";
-
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-
+    /**
+     * Hourly update
+     */
+    private static final int TIMEOUT = 3600 * 1000;
+    private static NewsFeed newsFeed = null;
     private String apiKey;
 
     private String source;
@@ -29,13 +32,29 @@ public class NewsService {
         this.apiKey = apiKey;
     }
 
+    public static NewsFeed getNews() {
+        return newsFeed;
+    }
+
+    @Override
+    public void run() {
+        try {
+            //TODO Choose source
+            newsFeed = getNews("ign");
+
+            Thread.sleep(TIMEOUT);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Grabs the top news from a given source
      *
      * @param sourceID Source
      * @return List of news
      */
-    public NewsFeed getNews(String sourceID) {
+    private NewsFeed getNews(String sourceID) {
         RestService restService = new RestService();
         NewsFeed newsFeed = new NewsFeed();
 

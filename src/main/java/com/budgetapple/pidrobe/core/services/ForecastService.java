@@ -15,18 +15,39 @@ import java.util.LinkedList;
  * @author Luis on 08/09/2017.
  * @project pidrobe
  */
-public class ForecastService {
+public class ForecastService extends Thread {
 
+    /**
+     * Updates every 15 min
+     */
+    private static final int TIMEOUT = 900 * 1000;
     private static String BASE_URL = "http://api.openweathermap.org/data/2.5/forecast?";
-
+    private static Forecast forecast = null;
     private String appId;
 
     /**
      * Constructor
+     *
      * @param appId API key
      */
     public ForecastService(String appId) {
         this.appId = appId;
+    }
+
+    public static Forecast getForecast() {
+        return forecast;
+    }
+
+    @Override
+    public void run() {
+        try {
+            //TODO Change to PiDrobe.getInstance.getCity()
+            forecast = getForecast("Porto");
+
+            Thread.sleep(TIMEOUT);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -35,7 +56,7 @@ public class ForecastService {
      * @param cityId City ID
      * @return forescast for the next 5 days
      */
-    public Forecast getForecast(String cityId){
+    private Forecast getForecast(String cityId) {
         LinkedList<Weather> listWeathers = new LinkedList<>();
         RestService restService = new RestService();
 
@@ -45,7 +66,7 @@ public class ForecastService {
             JSONArray jsonWeatherArray = (JSONArray) json.get("list");
 
             for (Object obj :
-                     jsonWeatherArray) {
+                    jsonWeatherArray) {
                 listWeathers.add(parseWeather((JSONObject) obj));
             }
 
@@ -63,7 +84,7 @@ public class ForecastService {
      * @param jsonWeather
      * @return Weather
      */
-    private Weather parseWeather(JSONObject jsonWeather){
+    private Weather parseWeather(JSONObject jsonWeather) {
         Weather weather = new Weather();
         weather.setDate(new Date((Long) jsonWeather.get("dt")));
 
@@ -75,9 +96,9 @@ public class ForecastService {
         );
         weather.setTemperature(temperature);
         weather.setPressure((Double) main.get("pressure"));
-        if(main.get("sea_level") instanceof Long){
+        if (main.get("sea_level") instanceof Long) {
             weather.setSeaLevel(((Long) main.get("sea_level")).doubleValue());
-        }else{
+        } else {
             weather.setSeaLevel((Double) main.get("sea_level"));
         }
         weather.setGroundLevel((Double) main.get("grnd_level"));
@@ -91,12 +112,12 @@ public class ForecastService {
         weather.setCloudiness(Math.toIntExact((Long) clouds.get("all")));
 
         JSONObject rain = (JSONObject) jsonWeather.get("rain");
-        if(rain != null &&  rain.get("3h") != null){
+        if (rain != null && rain.get("3h") != null) {
             weather.setRain((Double) rain.get("3h"));
         }
 
         JSONObject snow = (JSONObject) jsonWeather.get("snow");
-        if(snow != null){
+        if (snow != null) {
             weather.setSnow((Double) rain.get("3h"));
         }
 
