@@ -6,6 +6,7 @@ import com.budgetapple.pidrobe.core.clothes.Preset;
 import com.budgetapple.pidrobe.core.newsfeed.NewsFeed;
 import com.budgetapple.pidrobe.core.services.ForecastService;
 import com.budgetapple.pidrobe.core.services.NewsService;
+import com.budgetapple.pidrobe.core.services.ServicesThreads;
 import com.budgetapple.pidrobe.core.utils.IO;
 import com.budgetapple.pidrobe.core.weather.Forecast;
 
@@ -20,8 +21,6 @@ import java.util.List;
 public class PiDrobe implements Serializable {
 
     private static PiDrobe instance;
-
-    private ForecastService forecastService;
 
     private List<Item> allItems;
 
@@ -45,7 +44,7 @@ public class PiDrobe implements Serializable {
         this.allItems = new LinkedList<>();
         this.allPresets = new LinkedList<>();
         this.allCategories = new LinkedList<>();
-        this.forecastService = new ForecastService("f26768c8c6cae1724b64060af97ecff9","2735941");
+        new ServicesThreads();
 
         load();
     }

@@ -104,7 +104,12 @@ public class NewsService extends Thread {
         String date = (String) (jsonObject).get("publishedAt");
 
         Calendar publishedAt = Calendar.getInstance();
-        publishedAt.setTime(dateFormat.parse(date));
+
+        if (date != null) {
+            publishedAt.setTime(dateFormat.parse(date));
+        } else {
+            publishedAt = null;
+        }
 
         return publishedAt;
     }
