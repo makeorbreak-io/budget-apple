@@ -38,5 +38,13 @@
     @include animation(valo-animate-slide-right 200ms 100ms )
   }
 
+  .backColorBlue{
+    background-color: #387dac;
+  }
+
+  .backColorWhite{
+    background-color : #e7e9f4;
+  }
+
   // Insert your own theme rules here
 }

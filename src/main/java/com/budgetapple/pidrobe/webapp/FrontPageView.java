@@ -1,5 +1,6 @@
 package com.budgetapple.pidrobe.webapp;
 
+import com.budgetapple.pidrobe.PiDrobe;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
@@ -15,12 +16,25 @@ import java.util.regex.Pattern;
  */
 public class FrontPageView extends FrontPageDesign implements View {
 
+    /**
+     * Navigator allows navigation between views
+     */
     Navigator navigator;
+    /**
+     * App instance
+     */
+    PiDrobe piDrobe;
+    /**
+     * View navigator ID
+     */
     public static final String NAME = "frontpage_name";
 
     public FrontPageView() {
+        piDrobe = PiDrobe.getInstance();
         navigator = UI.getCurrent().getNavigator();
+        nameTextField.focus();
         buttonLogic();
+
     }
 
     /**
