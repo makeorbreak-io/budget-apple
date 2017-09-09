@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A0B155461F645E7C004CBED6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155451F645E7C004CBED6 /* AppDelegate.swift */; };
-		A0B155481F645E7C004CBED6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155471F645E7C004CBED6 /* ViewController.swift */; };
 		A0B1554B1F645E7C004CBED6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0B155491F645E7C004CBED6 /* Main.storyboard */; };
 		A0B1554E1F645E7C004CBED6 /* PiDrobe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0B1554C1F645E7C004CBED6 /* PiDrobe.xcdatamodeld */; };
 		A0B155501F645E7C004CBED6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0B1554F1F645E7C004CBED6 /* Assets.xcassets */; };
@@ -17,12 +16,14 @@
 		A0B1555F1F645FA2004CBED6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B1555E1F645FA2004CBED6 /* Category.swift */; };
 		A0B155611F645FA9004CBED6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155601F645FA9004CBED6 /* Item.swift */; };
 		A0B155631F6464F7004CBED6 /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155621F6464F7004CBED6 /* ItemService.swift */; };
+		A0B155661F647492004CBED6 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155651F647492004CBED6 /* ItemTableViewCell.swift */; };
+		A0B155681F6474A2004CBED6 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155671F6474A2004CBED6 /* ItemTableViewController.swift */; };
+		A0B1556A1F6474B4004CBED6 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155691F6474B4004CBED6 /* ItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A0B155421F645E7C004CBED6 /* PiDrobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiDrobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B155451F645E7C004CBED6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A0B155471F645E7C004CBED6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A0B1554A1F645E7C004CBED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0B1554D1F645E7C004CBED6 /* PiDrobe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PiDrobe.xcdatamodel; sourceTree = "<group>"; };
 		A0B1554F1F645E7C004CBED6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -32,6 +33,9 @@
 		A0B1555E1F645FA2004CBED6 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A0B155601F645FA9004CBED6 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A0B155621F6464F7004CBED6 /* ItemService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemService.swift; sourceTree = "<group>"; };
+		A0B155651F647492004CBED6 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		A0B155671F6474A2004CBED6 /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		A0B155691F6474B4004CBED6 /* ItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +68,10 @@
 		A0B155441F645E7C004CBED6 /* PiDrobe */ = {
 			isa = PBXGroup;
 			children = (
+				A0B155641F647470004CBED6 /* Controllers */,
 				A0B1555B1F645EC4004CBED6 /* Model */,
 				A0B1555A1F645EB4004CBED6 /* Processors */,
 				A0B155451F645E7C004CBED6 /* AppDelegate.swift */,
-				A0B155471F645E7C004CBED6 /* ViewController.swift */,
 				A0B155491F645E7C004CBED6 /* Main.storyboard */,
 				A0B1554F1F645E7C004CBED6 /* Assets.xcassets */,
 				A0B155511F645E7C004CBED6 /* LaunchScreen.storyboard */,
@@ -93,6 +97,16 @@
 				A0B155601F645FA9004CBED6 /* Item.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A0B155641F647470004CBED6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A0B155691F6474B4004CBED6 /* ItemViewController.swift */,
+				A0B155651F647492004CBED6 /* ItemTableViewCell.swift */,
+				A0B155671F6474A2004CBED6 /* ItemTableViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,10 +183,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0B1555D1F645EE1004CBED6 /* NetworkProcessor.swift in Sources */,
+				A0B155681F6474A2004CBED6 /* ItemTableViewController.swift in Sources */,
 				A0B1555F1F645FA2004CBED6 /* Category.swift in Sources */,
-				A0B155481F645E7C004CBED6 /* ViewController.swift in Sources */,
 				A0B155461F645E7C004CBED6 /* AppDelegate.swift in Sources */,
+				A0B155661F647492004CBED6 /* ItemTableViewCell.swift in Sources */,
 				A0B155611F645FA9004CBED6 /* Item.swift in Sources */,
+				A0B1556A1F6474B4004CBED6 /* ItemViewController.swift in Sources */,
 				A0B1554E1F645E7C004CBED6 /* PiDrobe.xcdatamodeld in Sources */,
 				A0B155631F6464F7004CBED6 /* ItemService.swift in Sources */,
 			);
