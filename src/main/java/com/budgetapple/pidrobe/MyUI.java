@@ -2,6 +2,8 @@ package com.budgetapple.pidrobe;
 
 import javax.servlet.annotation.WebServlet;
 
+import com.budgetapple.pidrobe.webapp.DefaultScreenDesign;
+import com.budgetapple.pidrobe.webapp.DefaultScreenView;
 import com.budgetapple.pidrobe.webapp.FrontPageCityView;
 import com.budgetapple.pidrobe.webapp.FrontPageView;
 import com.vaadin.annotations.Theme;
@@ -30,7 +32,7 @@ public class MyUI extends UI {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
 
-        getPage().setTitle("Navigation Example");
+        getPage().setTitle("PiDrobe");
 
         // Create a navigator to control the views
         navigator = new Navigator(this, this);
@@ -38,6 +40,7 @@ public class MyUI extends UI {
         // Create and register the views
         navigator.addView(FrontPageView.NAME, FrontPageView.class);
         navigator.addView(FrontPageCityView.NAME,FrontPageCityView.class);
+        navigator.addView(DefaultScreenView.NAME,DefaultScreenView.class);
 
         navigator.navigateTo(FrontPageView.NAME);
 

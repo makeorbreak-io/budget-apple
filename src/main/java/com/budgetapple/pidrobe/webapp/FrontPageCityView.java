@@ -43,8 +43,8 @@ public class FrontPageCityView extends FrontPageCityDesign implements View {
                 Matcher m = p.matcher(name);
                 if (m.find()) {
                     // match
-                    Notification.show("Your town is " + name + "!", Notification.Type.HUMANIZED_MESSAGE);
-
+                    //Notification.show("Your town is " + name + "!", Notification.Type.HUMANIZED_MESSAGE);
+                    navigator.navigateTo(DefaultScreenView.NAME);
 
                 } else {
                     Notification.show("Enter a correct name");

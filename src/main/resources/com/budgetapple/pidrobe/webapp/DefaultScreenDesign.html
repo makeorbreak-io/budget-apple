@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout size-full>
+   <vaadin-horizontal-layout size-full>
+    <vaadin-absolute-layout responsive :center>
+     <vaadin-label :top="26px" :left="122px">
+      <b>9 de Setembro , 16:21</b>
+     </vaadin-label>
+     <vaadin-label :top="176px" :left="287px">
+      <font size="190">22ºC</font>
+     </vaadin-label>
+     <vaadin-label plain-text :top="69px" :left="102px">
+       Max (ºC) 
+     </vaadin-label>
+     <vaadin-label plain-text :top="69px" :left="243px">
+       Min (ºC) 
+     </vaadin-label>
+    </vaadin-absolute-layout>
+    <vaadin-vertical-layout size-full>
+     <vaadin-image caption="IMAGE"></vaadin-image>
+     <vaadin-label plain-text>
+       Mostly Sunny 
+     </vaadin-label>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" style-name="borderless borderless-colored" plain-text>
+       MyCloset 
+     </vaadin-button>
+    </vaadin-vertical-layout>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout size-full>
+    <vaadin-vertical-layout size-full :center>
+     <vaadin-horizontal-layout caption="News Source" size-full>
+      <vaadin-vertical-layout size-auto :center>
+       <vaadin-label plain-text>
+         NEWS1 
+       </vaadin-label>
+       <vaadin-image></vaadin-image>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout size-auto :center>
+       <vaadin-label plain-text>
+         NEWS2 
+       </vaadin-label>
+       <vaadin-image></vaadin-image>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout size-auto :center>
+       <vaadin-label plain-text>
+         NEWS3 
+       </vaadin-label>
+       <vaadin-image></vaadin-image>
+      </vaadin-vertical-layout>
+     </vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
+   </vaadin-horizontal-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

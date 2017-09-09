@@ -26,6 +26,27 @@
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.5.3" />
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.9" />
+          <element id="library" level="project" name="Maven: javax.ws.rs:javax.ws.rs-api:2.1" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.containers:jersey-container-servlet-core:2.7" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2.external:javax.inject:2.2.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-server:2.7" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-client:2.7" />
+          <element id="library" level="project" name="Maven: javax.annotation:javax.annotation-api:1.2" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2:hk2-api:2.2.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2:hk2-utils:2.2.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2.external:aopalliance-repackaged:2.2.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2:hk2-locator:2.2.0" />
+          <element id="library" level="project" name="Maven: org.javassist:javassist:3.18.1-GA" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-common:2.7" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.bundles.repackaged:jersey-guava:2.7" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2:osgi-resource-locator:1.0.1" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.containers:jersey-container-jetty-http:2.7" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-server:9.1.1.v20140108" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-http:9.1.1.v20140108" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-util:9.1.1.v20140108" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-io:9.1.1.v20140108" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-continuation:9.1.1.v20140108" />
         </element>
       </element>
       <element id="directory" name="META-INF">
