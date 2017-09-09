@@ -1,0 +1,46 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<web-app xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xmlns = "http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+   http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id = "WebApp_ID" version = "3.0">
+    <display-name>CDIO-IL</display-name>
+
+    <!-- PiDrobe UI VAADIN SERVLET -->
+    <servlet>
+        <servlet-name>PiDrobe</servlet-name>
+        <servlet-class>
+            com.vaadin.server.VaadinServlet
+        </servlet-class>
+        <init-param>
+            <param-name>UI</param-name>
+            <param-value>com.budgetapple.pidrobe.MyUI</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PiDrobe</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- API REST SERVLET -->
+    <servlet>
+        <servlet-name>ApiRest</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>com.budgetapple.pidrobe.application.api</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ApiRest</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- DEBUG MODE  | true=disabled and false=activated  | Add "?debug" parameter to the URL to use it-->
+    <context-param>
+        <description>Vaadin production mode</description>
+        <param-name>productionMode</param-name>
+        <param-value>true</param-value>
+    </context-param>
+</web-app>

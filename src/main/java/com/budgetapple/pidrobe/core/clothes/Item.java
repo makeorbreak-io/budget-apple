@@ -86,7 +86,12 @@ public class Item implements Serializable {
 
     @Override
     public String toString() {
-        return "Category: " + category + "\nName: " + name + "\nColor: " + color.toString();
+        return "Item{" +
+                "category=" + category.getName() +
+                ", name='" + name +
+                ", color=" + "#" + Integer.toHexString(color.getRGB()).substring(2) +
+                ", temperatureIndex=" + temperatureIndex +
+                ", isAvailable=" + isAvailable +
+                '}';
     }
-
 }

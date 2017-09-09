@@ -1,14 +1,11 @@
-package com.budgetapple.pidrobe.services;
+package com.budgetapple.pidrobe.core.services;
 
 import com.budgetapple.pidrobe.core.local.City;
 import com.budgetapple.pidrobe.core.local.Coordinates;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-
-import static org.junit.Assert.*;
 
 /**
  * @author Luis on 09/09/2017.
