@@ -1,4 +1,4 @@
-package com.budgetapple.pidrobe.services;
+package com.budgetapple.pidrobe.core.services;
 
 import com.budgetapple.pidrobe.core.newsfeed.News;
 import com.budgetapple.pidrobe.core.newsfeed.NewsFeed;

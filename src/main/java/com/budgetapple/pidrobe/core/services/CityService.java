@@ -1,4 +1,4 @@
-package com.budgetapple.pidrobe.services;
+package com.budgetapple.pidrobe.core.services;
 
 import com.budgetapple.pidrobe.core.local.City;
 import com.budgetapple.pidrobe.core.local.Coordinates;

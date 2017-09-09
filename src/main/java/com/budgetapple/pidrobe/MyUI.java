@@ -42,9 +42,4 @@ public class MyUI extends UI {
         navigator.navigateTo(FrontPageView.NAME);
 
     }
-
-    @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
-    @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
-    public static class MyUIServlet extends VaadinServlet {
-    }
 }
