@@ -1,34 +1,34 @@
 package com.budgetapple.pidrobe.application.Outfit;
 
 import com.budgetapple.pidrobe.core.clothes.Item;
-import com.budgetapple.pidrobe.core.clothes.Outfit;
+import com.budgetapple.pidrobe.core.clothes.Preset;
 
 import java.util.List;
 
 /**
  * Created by Miguel Cardoso on 09/09/2017.
  */
-public class EditOutfitController {
-    private final Outfit outfit;
+public class EditOutfitPresetController {
+    private final Preset preset;
 
-    public EditOutfitController(Outfit outfit) {
-        this.outfit = outfit;
+    public EditOutfitPresetController(Preset preset) {
+        this.preset = preset;
     }
 
     public void replaceUpperBodyItem(int i, Item item) {
-        this.outfit.replaceUpperBodyItem(i, item);
+        preset.getOutfit().replaceUpperBodyItem(i, item);
     }
 
     public void changeLowerBodyItem(Item lowerBodyItem) {
-        this.outfit.setLowerBodyItem(lowerBodyItem);
+        preset.getOutfit().setLowerBodyItem(lowerBodyItem);
     }
 
     public void changeAccessories(List<Item> accessories) {
-        this.outfit.setAccessories(accessories);
+        preset.getOutfit().setAccessories(accessories);
     }
 
     public void changeFootwear(Item footwear) {
-        this.outfit.setFootwearItem(footwear);
+        preset.getOutfit().setFootwearItem(footwear);
     }
 
 }

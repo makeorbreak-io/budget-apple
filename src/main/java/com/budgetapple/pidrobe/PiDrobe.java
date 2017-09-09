@@ -3,6 +3,7 @@ package com.budgetapple.pidrobe;
 import com.budgetapple.pidrobe.core.clothes.Category;
 import com.budgetapple.pidrobe.core.clothes.Item;
 import com.budgetapple.pidrobe.core.clothes.Outfit;
+import com.budgetapple.pidrobe.core.clothes.Preset;
 
 import java.io.Serializable;
 import java.util.LinkedList;
@@ -15,18 +16,14 @@ public class PiDrobe implements Serializable {
 
     private List<Item> allItems;
 
-    private List<Outfit> allOutfits;
-
     private List<Category> allCategories;
+
+    private List<Preset> allPresets;
 
     public PiDrobe() {
         this.allItems = new LinkedList<>();
-        this.allOutfits = new LinkedList<>();
+        this.allPresets = new LinkedList<>();
         this.allCategories = new LinkedList<>();
-    }
-
-    public void setAllItems(List<Item> allItems) {
-        this.allItems = allItems;
     }
 
     public boolean addItem(Item item) {
@@ -41,24 +38,8 @@ public class PiDrobe implements Serializable {
         return allItems;
     }
 
-    public void setAllOutfits(List<Outfit> allOutfits) {
-        this.allOutfits = allOutfits;
-    }
-
-    public boolean addOutfit(Outfit outfit) {
-        return this.allOutfits.add(outfit);
-    }
-
-    public boolean removeOutfit(Outfit outfit) {
-        return this.allOutfits.remove(outfit);
-    }
-
-    public List<Outfit> getAllOutfits() {
-        return allOutfits;
-    }
-
-    public void setAllCategories(List<Category> allCategories) {
-        this.allCategories = allCategories;
+    public void setAllItems(List<Item> allItems) {
+        this.allItems = allItems;
     }
 
     public boolean addCategory(Category category) {
@@ -71,5 +52,25 @@ public class PiDrobe implements Serializable {
 
     public List<Category> getAllCategories() {
         return allCategories;
+    }
+
+    public void setAllCategories(List<Category> allCategories) {
+        this.allCategories = allCategories;
+    }
+
+    public List<Preset> getAllPresets() {
+        return allPresets;
+    }
+
+    public void setAllPresets(List<Preset> allPresets) {
+        this.allPresets = allPresets;
+    }
+
+    public boolean addPreset(Preset preset) {
+        return this.allPresets.add(preset);
+    }
+
+    public boolean removePreset(Preset preset) {
+        return this.allPresets.remove(preset);
     }
 }

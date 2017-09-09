@@ -3,18 +3,19 @@ package com.budgetapple.pidrobe.application.Outfit;
 import com.budgetapple.pidrobe.PiDrobe;
 import com.budgetapple.pidrobe.core.clothes.Item;
 import com.budgetapple.pidrobe.core.clothes.Outfit;
+import com.budgetapple.pidrobe.core.clothes.Preset;
 
 import java.util.List;
 
 /**
  * Created by Miguel Cardoso on 09/09/2017.
  */
-public class CreateOutfitController {
+public class CreateOutfitPresetController {
 
     private final PiDrobe piDrobe;
     private final Outfit outfit;
 
-    public CreateOutfitController(PiDrobe piDrobe) {
+    public CreateOutfitPresetController(PiDrobe piDrobe) {
         this.piDrobe = piDrobe;
         this.outfit = new Outfit();
     }
