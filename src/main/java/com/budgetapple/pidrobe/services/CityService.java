@@ -7,10 +7,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.FileNotFoundException;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @author Luis on 08/09/2017.
@@ -18,16 +18,12 @@ import java.util.ArrayList;
  */
 public class CityService {
 
-    private static String FILE_DIR = "city.list.json";
-
-    private String appId;
+    private static String FILE_DIR = "files/city.list.json";
 
     /**
      * Constructor
-     * @param appId API key
      */
-    public CityService(String appId) {
-        this.appId = appId;
+    public CityService() {
     }
 
     /**
@@ -35,30 +31,26 @@ public class CityService {
      *
      * @return forescast for the next 5 days
      */
-    public ArrayList<City> getAllCities(){
-        ArrayList<City> listCities = new ArrayList<>();
+    public HashMap<String,City> getAllCities(){
+        HashMap<String,City> cityHashMap = new HashMap<>();
 
         try {
             JSONParser parser = new JSONParser();
-            //TODO Implement DIR of file into here
-            Object parsed = parser.parse(new FileReader(FILE_DIR));
+            Object parsed = parser.parse(new FileReader(new File(FILE_DIR)));
             JSONArray jsonArray = (JSONArray) parsed;
 
 
             for (Object obj :
                     jsonArray) {
-                listCities.add(parseCity((JSONObject) obj));
+                City city = parseCity((JSONObject) obj);
+                cityHashMap.put(city.getId(), city);
             }
 
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParseException | IOException e) {
             e.printStackTrace();
         }
 
-        return listCities;
+        return cityHashMap;
     }
 
     /**
@@ -69,13 +61,25 @@ public class CityService {
      */
     private City parseCity(JSONObject jsonCity){
         JSONObject jsonCoord = (JSONObject) jsonCity.get("coord");
-        Coordinates coordinates = new Coordinates(
-                (Double) jsonCoord.get("lon"),
-                (Double) jsonCoord.get("lat")
+        Double lon,lat;
+        if(jsonCoord.get("lon") instanceof Long){
+            lon = ((Long) jsonCoord.get("lon")).doubleValue();
+        }else {
+            lon = (Double) jsonCoord.get("lon");
+        }
+        if(jsonCoord.get("lat") instanceof Long){
+            lat = ((Long) jsonCoord.get("lat")).doubleValue();
+        }else {
+            lat = (Double) jsonCoord.get("lat");
+        }
+
+            Coordinates coordinates = new Coordinates(
+                lon,
+                lat
         );
 
         City city = new City(
-                (String) jsonCity.get("id"),
+                String.valueOf(jsonCity.get("id")),
                 (String) jsonCity.get("name"),
                 (String) jsonCity.get("country"),
                 coordinates
