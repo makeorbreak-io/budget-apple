@@ -7,27 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A0928F7C1F64559100267072 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0928F7B1F64559100267072 /* AppDelegate.swift */; };
-		A0928F7E1F64559100267072 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0928F7D1F64559100267072 /* ViewController.swift */; };
-		A0928F811F64559100267072 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0928F7F1F64559100267072 /* Main.storyboard */; };
-		A0928F841F64559100267072 /* pidrobe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0928F821F64559100267072 /* pidrobe.xcdatamodeld */; };
-		A0928F861F64559100267072 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0928F851F64559100267072 /* Assets.xcassets */; };
-		A0928F891F64559100267072 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0928F871F64559100267072 /* LaunchScreen.storyboard */; };
+		A0B155461F645E7C004CBED6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155451F645E7C004CBED6 /* AppDelegate.swift */; };
+		A0B155481F645E7C004CBED6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155471F645E7C004CBED6 /* ViewController.swift */; };
+		A0B1554B1F645E7C004CBED6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0B155491F645E7C004CBED6 /* Main.storyboard */; };
+		A0B1554E1F645E7C004CBED6 /* PiDrobe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0B1554C1F645E7C004CBED6 /* PiDrobe.xcdatamodeld */; };
+		A0B155501F645E7C004CBED6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0B1554F1F645E7C004CBED6 /* Assets.xcassets */; };
+		A0B155531F645E7C004CBED6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0B155511F645E7C004CBED6 /* LaunchScreen.storyboard */; };
+		A0B1555D1F645EE1004CBED6 /* NetworkProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B1555C1F645EE1004CBED6 /* NetworkProcessor.swift */; };
+		A0B1555F1F645FA2004CBED6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B1555E1F645FA2004CBED6 /* Category.swift */; };
+		A0B155611F645FA9004CBED6 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155601F645FA9004CBED6 /* Item.swift */; };
+		A0B155631F6464F7004CBED6 /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155621F6464F7004CBED6 /* ItemService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A0928F781F64559100267072 /* pidrobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pidrobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0928F7B1F64559100267072 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A0928F7D1F64559100267072 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A0928F801F64559100267072 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A0928F831F64559100267072 /* pidrobe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = pidrobe.xcdatamodel; sourceTree = "<group>"; };
-		A0928F851F64559100267072 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A0928F881F64559100267072 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A0928F8A1F64559100267072 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0B155421F645E7C004CBED6 /* PiDrobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PiDrobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0B155451F645E7C004CBED6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A0B155471F645E7C004CBED6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A0B1554A1F645E7C004CBED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A0B1554D1F645E7C004CBED6 /* PiDrobe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PiDrobe.xcdatamodel; sourceTree = "<group>"; };
+		A0B1554F1F645E7C004CBED6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0B155521F645E7C004CBED6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A0B155541F645E7C004CBED6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0B1555C1F645EE1004CBED6 /* NetworkProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProcessor.swift; sourceTree = "<group>"; };
+		A0B1555E1F645FA2004CBED6 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		A0B155601F645FA9004CBED6 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		A0B155621F6464F7004CBED6 /* ItemService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A0928F751F64559100267072 /* Frameworks */ = {
+		A0B1553F1F645E7C004CBED6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,74 +45,94 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A0928F6F1F64559100267072 = {
+		A0B155391F645E7C004CBED6 = {
 			isa = PBXGroup;
 			children = (
-				A0928F7A1F64559100267072 /* pidrobe */,
-				A0928F791F64559100267072 /* Products */,
+				A0B155441F645E7C004CBED6 /* PiDrobe */,
+				A0B155431F645E7C004CBED6 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A0928F791F64559100267072 /* Products */ = {
+		A0B155431F645E7C004CBED6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0928F781F64559100267072 /* pidrobe.app */,
+				A0B155421F645E7C004CBED6 /* PiDrobe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A0928F7A1F64559100267072 /* pidrobe */ = {
+		A0B155441F645E7C004CBED6 /* PiDrobe */ = {
 			isa = PBXGroup;
 			children = (
-				A0928F7B1F64559100267072 /* AppDelegate.swift */,
-				A0928F7D1F64559100267072 /* ViewController.swift */,
-				A0928F7F1F64559100267072 /* Main.storyboard */,
-				A0928F851F64559100267072 /* Assets.xcassets */,
-				A0928F871F64559100267072 /* LaunchScreen.storyboard */,
-				A0928F8A1F64559100267072 /* Info.plist */,
-				A0928F821F64559100267072 /* pidrobe.xcdatamodeld */,
+				A0B1555B1F645EC4004CBED6 /* Model */,
+				A0B1555A1F645EB4004CBED6 /* Processors */,
+				A0B155451F645E7C004CBED6 /* AppDelegate.swift */,
+				A0B155471F645E7C004CBED6 /* ViewController.swift */,
+				A0B155491F645E7C004CBED6 /* Main.storyboard */,
+				A0B1554F1F645E7C004CBED6 /* Assets.xcassets */,
+				A0B155511F645E7C004CBED6 /* LaunchScreen.storyboard */,
+				A0B155541F645E7C004CBED6 /* Info.plist */,
+				A0B1554C1F645E7C004CBED6 /* PiDrobe.xcdatamodeld */,
 			);
-			path = pidrobe;
+			path = PiDrobe;
+			sourceTree = "<group>";
+		};
+		A0B1555A1F645EB4004CBED6 /* Processors */ = {
+			isa = PBXGroup;
+			children = (
+				A0B1555C1F645EE1004CBED6 /* NetworkProcessor.swift */,
+				A0B155621F6464F7004CBED6 /* ItemService.swift */,
+			);
+			name = Processors;
+			sourceTree = "<group>";
+		};
+		A0B1555B1F645EC4004CBED6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A0B1555E1F645FA2004CBED6 /* Category.swift */,
+				A0B155601F645FA9004CBED6 /* Item.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A0928F771F64559100267072 /* pidrobe */ = {
+		A0B155411F645E7C004CBED6 /* PiDrobe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0928F8D1F64559100267072 /* Build configuration list for PBXNativeTarget "pidrobe" */;
+			buildConfigurationList = A0B155571F645E7C004CBED6 /* Build configuration list for PBXNativeTarget "PiDrobe" */;
 			buildPhases = (
-				A0928F741F64559100267072 /* Sources */,
-				A0928F751F64559100267072 /* Frameworks */,
-				A0928F761F64559100267072 /* Resources */,
+				A0B1553E1F645E7C004CBED6 /* Sources */,
+				A0B1553F1F645E7C004CBED6 /* Frameworks */,
+				A0B155401F645E7C004CBED6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = pidrobe;
-			productName = pidrobe;
-			productReference = A0928F781F64559100267072 /* pidrobe.app */;
+			name = PiDrobe;
+			productName = PiDrobe;
+			productReference = A0B155421F645E7C004CBED6 /* PiDrobe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A0928F701F64559100267072 /* Project object */ = {
+		A0B1553A1F645E7C004CBED6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Budget Apple";
 				TargetAttributes = {
-					A0928F771F64559100267072 = {
+					A0B155411F645E7C004CBED6 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = PT2JECX2U3;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = A0928F731F64559100267072 /* Build configuration list for PBXProject "pidrobe" */;
+			buildConfigurationList = A0B1553D1F645E7C004CBED6 /* Build configuration list for PBXProject "PiDrobe" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -112,55 +140,59 @@
 				en,
 				Base,
 			);
-			mainGroup = A0928F6F1F64559100267072;
-			productRefGroup = A0928F791F64559100267072 /* Products */;
+			mainGroup = A0B155391F645E7C004CBED6;
+			productRefGroup = A0B155431F645E7C004CBED6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A0928F771F64559100267072 /* pidrobe */,
+				A0B155411F645E7C004CBED6 /* PiDrobe */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A0928F761F64559100267072 /* Resources */ = {
+		A0B155401F645E7C004CBED6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0928F891F64559100267072 /* LaunchScreen.storyboard in Resources */,
-				A0928F861F64559100267072 /* Assets.xcassets in Resources */,
-				A0928F811F64559100267072 /* Main.storyboard in Resources */,
+				A0B155531F645E7C004CBED6 /* LaunchScreen.storyboard in Resources */,
+				A0B155501F645E7C004CBED6 /* Assets.xcassets in Resources */,
+				A0B1554B1F645E7C004CBED6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A0928F741F64559100267072 /* Sources */ = {
+		A0B1553E1F645E7C004CBED6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0928F7E1F64559100267072 /* ViewController.swift in Sources */,
-				A0928F7C1F64559100267072 /* AppDelegate.swift in Sources */,
-				A0928F841F64559100267072 /* pidrobe.xcdatamodeld in Sources */,
+				A0B1555D1F645EE1004CBED6 /* NetworkProcessor.swift in Sources */,
+				A0B1555F1F645FA2004CBED6 /* Category.swift in Sources */,
+				A0B155481F645E7C004CBED6 /* ViewController.swift in Sources */,
+				A0B155461F645E7C004CBED6 /* AppDelegate.swift in Sources */,
+				A0B155611F645FA9004CBED6 /* Item.swift in Sources */,
+				A0B1554E1F645E7C004CBED6 /* PiDrobe.xcdatamodeld in Sources */,
+				A0B155631F6464F7004CBED6 /* ItemService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A0928F7F1F64559100267072 /* Main.storyboard */ = {
+		A0B155491F645E7C004CBED6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A0928F801F64559100267072 /* Base */,
+				A0B1554A1F645E7C004CBED6 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		A0928F871F64559100267072 /* LaunchScreen.storyboard */ = {
+		A0B155511F645E7C004CBED6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A0928F881F64559100267072 /* Base */,
+				A0B155521F645E7C004CBED6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -168,7 +200,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		A0928F8B1F64559100267072 /* Debug */ = {
+		A0B155551F645E7C004CBED6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -218,7 +250,7 @@
 			};
 			name = Debug;
 		};
-		A0928F8C1F64559100267072 /* Release */ = {
+		A0B155561F645E7C004CBED6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -261,12 +293,12 @@
 			};
 			name = Release;
 		};
-		A0928F8E1F64559100267072 /* Debug */ = {
+		A0B155581F645E7C004CBED6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PT2JECX2U3;
-				INFOPLIST_FILE = pidrobe/Info.plist;
+				INFOPLIST_FILE = PiDrobe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.budgetapple.pidrobe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -274,12 +306,12 @@
 			};
 			name = Debug;
 		};
-		A0928F8F1F64559100267072 /* Release */ = {
+		A0B155591F645E7C004CBED6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PT2JECX2U3;
-				INFOPLIST_FILE = pidrobe/Info.plist;
+				INFOPLIST_FILE = PiDrobe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.budgetapple.pidrobe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -290,37 +322,37 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A0928F731F64559100267072 /* Build configuration list for PBXProject "pidrobe" */ = {
+		A0B1553D1F645E7C004CBED6 /* Build configuration list for PBXProject "PiDrobe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A0928F8B1F64559100267072 /* Debug */,
-				A0928F8C1F64559100267072 /* Release */,
+				A0B155551F645E7C004CBED6 /* Debug */,
+				A0B155561F645E7C004CBED6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0928F8D1F64559100267072 /* Build configuration list for PBXNativeTarget "pidrobe" */ = {
+		A0B155571F645E7C004CBED6 /* Build configuration list for PBXNativeTarget "PiDrobe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A0928F8E1F64559100267072 /* Debug */,
-				A0928F8F1F64559100267072 /* Release */,
+				A0B155581F645E7C004CBED6 /* Debug */,
+				A0B155591F645E7C004CBED6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A0928F821F64559100267072 /* pidrobe.xcdatamodeld */ = {
+		A0B1554C1F645E7C004CBED6 /* PiDrobe.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A0928F831F64559100267072 /* pidrobe.xcdatamodel */,
+				A0B1554D1F645E7C004CBED6 /* PiDrobe.xcdatamodel */,
 			);
-			currentVersion = A0928F831F64559100267072 /* pidrobe.xcdatamodel */;
-			path = pidrobe.xcdatamodeld;
+			currentVersion = A0B1554D1F645E7C004CBED6 /* PiDrobe.xcdatamodel */;
+			path = PiDrobe.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = A0928F701F64559100267072 /* Project object */;
+	rootObject = A0B1553A1F645E7C004CBED6 /* Project object */;
 }

@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>pidrobe.xcscheme</key>
+		<key>PiDrobe.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>A0928F771F64559100267072</key>
+		<key>A0B155411F645E7C004CBED6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
