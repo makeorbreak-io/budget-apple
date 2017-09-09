@@ -36,7 +36,9 @@ public class CreateOutfitPresetController {
         this.outfit.setFootwearItem(footwear);
     }
 
-    public boolean save() {
-        return piDrobe.addOutfit(outfit);
+    public boolean save(String name) {
+        Preset preset = new Preset(outfit, name);
+        
+        return piDrobe.addPreset(preset);
     }
 }
