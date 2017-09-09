@@ -62,6 +62,10 @@ public class Outfit implements Serializable {
         this.lowerBody = lowerBody;
     }
 
+    public void setAccessories(List<Item> accessories) {
+        this.accessories = accessories;
+    }
+
     public void setFootwearItem(Item footwearItem) {
         this.footwear = footwearItem;
     }
