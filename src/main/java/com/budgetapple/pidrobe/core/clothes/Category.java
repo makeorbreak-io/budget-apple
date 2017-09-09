@@ -1,5 +1,8 @@
 package com.budgetapple.pidrobe.core.clothes;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 
 /**
@@ -8,7 +11,8 @@ import java.io.Serializable;
 public class Category implements Serializable {
     private String category;
 
-    public Category(String category){
+    @JsonCreator
+    public Category(@JsonProperty("category") String category) {
         this.category = category;
     }
 
@@ -18,5 +22,20 @@ public class Category implements Serializable {
 
     public String getName(){
         return category;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Category category1 = (Category) o;
+
+        return category != null ? category.equals(category1.category) : category1.category == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return category != null ? category.hashCode() : 0;
     }
 }

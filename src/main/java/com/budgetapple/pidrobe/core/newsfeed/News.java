@@ -1,6 +1,5 @@
 package com.budgetapple.pidrobe.core.newsfeed;
 
-import sun.awt.image.URLImageSource;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -28,7 +27,7 @@ public class News implements Serializable {
     /**
      * News feed imageURL
      */
-    private final URLImageSource imageURL;
+    private final String imageURL;
 
     /**
      * Default constructor for a news feed
@@ -38,7 +37,7 @@ public class News implements Serializable {
      * @param publishedAt date
      * @param imageURL    imageURL
      */
-    public News(String source, String title, Calendar publishedAt, URLImageSource imageURL) {
+    public News(String source, String title, Calendar publishedAt, String imageURL) {
         this.source = source;
         this.title = title;
         this.publishedAt = publishedAt;
@@ -71,7 +70,7 @@ public class News implements Serializable {
     /**
      * @return news feed imageURL
      */
-    public URLImageSource getImageURL() {
+    public String getImageURL() {
         return imageURL;
     }
 

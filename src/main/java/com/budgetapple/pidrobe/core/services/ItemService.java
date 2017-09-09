@@ -27,8 +27,10 @@ public class ItemService {
                 items) {
             JSONObject object = new JSONObject();
             object.put("name", i.getName());
-            object.put("category_name", i.getCategory().getName());
-            object.put("color", Integer.toHexString(i.getColor().getRGB()).substring(2));
+            JSONObject category = new JSONObject();
+            category.put("category", i.getCategory().getName());
+            object.put("category",category);
+            object.put("color", i.getColorHexa());
             object.put("temperature_index", i.getTemperatureIndex());
             object.put("available", i.isAvailable());
 
@@ -40,5 +42,16 @@ public class ItemService {
         response.put("items", array);
 
         return response.toJSONString();
+    }
+
+    public boolean addNewItem(Item item){
+        if(!PiDrobe.getInstance().getAllItems().contains(item)){
+
+            PiDrobe.getInstance().addItem(item);
+
+            return true;
+        }else {
+            return false;
+        }
     }
 }

@@ -5,7 +5,6 @@ import com.budgetapple.pidrobe.core.newsfeed.NewsFeed;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
-import sun.awt.image.URLImageSource;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -93,7 +92,7 @@ public class NewsService {
 
 
     private News createNews(String title, String urlToImage, Calendar publishedAt) throws MalformedURLException {
-        return new News(source, title, publishedAt, new URLImageSource(urlToImage));
+        return new News(source, title, publishedAt, urlToImage);
     }
 
     /**

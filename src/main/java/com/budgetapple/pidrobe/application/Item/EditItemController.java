@@ -33,12 +33,12 @@ public class EditItemController {
         this.item.setName(name);
     }
 
-    public void changeImage(Image image) {
-        this.item.setImage(image);
+    public void changeImage(String image) {
+        this.item.setImageBase64(image);
     }
 
-    public void changeColor(Color color) {
-        this.item.setColor(color);
+    public void changeColor(String color) {
+        this.item.setColorHexa(color);
     }
 
     public void changeTemperatureIndex(int temperatureIndex) {

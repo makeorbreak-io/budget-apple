@@ -33,12 +33,12 @@ public class CreateItemController {
         this.item.setName(name);
     }
 
-    public void setImage(Image image){
-        this.item.setImage(image);
+    public void setImage(String image){
+        this.item.setImageBase64(image);
     }
 
-    public void setColor(Color color){
-        this.item.setColor(color);
+    public void setColor(String color){
+        this.item.setColorHexa(color);
     }
 
     public void setTemperatureIndex(int temperatureIndex){
