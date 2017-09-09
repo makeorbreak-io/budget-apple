@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-css-layout responsive size-full>
+   <vaadin-vertical-layout responsive size-full>
+    <vaadin-label style-name="large colored" responsive plain-text _id="nameLabel" :bottom :center>
+      What's your name? 
+    </vaadin-label>
+    <vaadin-horizontal-layout responsive :center>
+     <vaadin-text-field style-name="no-vertical-lines" responsive placeholder="Ex: John Smith" width-full _id="nameTextField"></vaadin-text-field>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" responsive _id="forwardButton" :middle :right></vaadin-button>
+    </vaadin-horizontal-layout>
+   </vaadin-vertical-layout>
+  </vaadin-css-layout>
+ </body>
+</html>

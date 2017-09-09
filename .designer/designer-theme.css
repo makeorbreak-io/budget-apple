@@ -12820,3 +12820,9 @@ div.v-layout.v-horizontal.v-widget {
 	width: 19px;
 	overflow: hidden;
 }
+
+.mytheme .myStyle {
+	-webkit-animation: valo-animate-slide-right 200ms 100ms;
+	-moz-animation: valo-animate-slide-right 200ms 100ms;
+	animation: valo-animate-slide-right 200ms 100ms;
+}

@@ -34,5 +34,9 @@
 @mixin mytheme {
   @include valo;
 
+  .myStyle{
+    @include animation(valo-animate-slide-right 200ms 100ms )
+  }
+
   // Insert your own theme rules here
 }
