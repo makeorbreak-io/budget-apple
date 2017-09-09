@@ -25,7 +25,7 @@ public class CreateItemController {
     }
 
     public void chooseCategory(Category category){
-        this.item.setCategory(category);
+        this.item.setCategoryID(category.getId());
     }
 
     public void setImage(String image){

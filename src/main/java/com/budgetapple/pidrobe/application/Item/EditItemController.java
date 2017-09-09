@@ -24,8 +24,8 @@ public class EditItemController {
         return piDrobe.getAllCategories();
     }
 
-    public void chooseCategory(Category category) {
-        this.item.setCategory(category);
+    public void chooseCategory(int categoryID) {
+        this.item.setCategoryID(categoryID);
     }
 
     public void changeImage(String image) {

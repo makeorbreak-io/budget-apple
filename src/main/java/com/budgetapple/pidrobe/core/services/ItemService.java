@@ -16,20 +16,18 @@ public class ItemService {
     public ItemService() {
     }
 
-    public String getJsonAllItems(){
+    public String getJsonAllItems() {
         JSONArray array = new JSONArray();
 
         PiDrobe piDrobe = PiDrobe.getInstance();
 
         List<Item> items = piDrobe.getAllItems();
 
-        for (Item i :
-                items) {
+        for (Item i : items) {
             JSONObject object = new JSONObject();
+
             object.put("id", i.getId());
-            JSONObject category = new JSONObject();
-            category.put("category", i.getCategory().getName());
-            object.put("category",category);
+            object.put("categoryID", i.getCategoryID());
             object.put("color", i.getColorHexa());
             object.put("temperature_index", i.getTemperatureIndex());
             object.put("available", i.isAvailable());
@@ -44,13 +42,13 @@ public class ItemService {
         return response.toJSONString();
     }
 
-    public boolean addNewItem(Item item){
-        if(!PiDrobe.getInstance().getAllItems().contains(item)){
+    public boolean addNewItem(Item item) {
+        if (!PiDrobe.getInstance().getAllItems().contains(item)) {
 
             PiDrobe.getInstance().addItem(item);
 
             return true;
-        }else {
+        } else {
             return false;
         }
     }

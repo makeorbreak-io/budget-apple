@@ -9,9 +9,11 @@ import java.io.Serializable;
  * Created by Miguel Cardoso on 08/09/2017.
  */
 public class Item implements Serializable {
-    private Category category;
+    private static int counter = 0;
 
-    private int id;
+    public final int id;
+
+    private int categoryID;
 
     private String colorHexa;
 
@@ -22,38 +24,34 @@ public class Item implements Serializable {
     private boolean isAvailable;
 
     public Item() {
-
+        this.id = ++counter;
     }
 
     @JsonCreator
-    public Item(@JsonProperty("category") Category category,
-                @JsonProperty("id") int id,
+    public Item(@JsonProperty("id") int id,
+                @JsonProperty("categoryID") int categoryID,
                 @JsonProperty("image") String imageBase64,
                 @JsonProperty("color_hexa") String colorHexa,
                 @JsonProperty("temperature_index") int temperatureIndex,
                 @JsonProperty("available") boolean isAvailable) {
-        this.category = category;
-        this.id = id;
+        this.id = ++counter;
+        this.categoryID = categoryID;
         this.imageBase64 = imageBase64;
         this.colorHexa = colorHexa;
         this.temperatureIndex = temperatureIndex;
         this.isAvailable = isAvailable;
     }
 
-    public Category getCategory() {
-        return category;
+    public int getCategoryID() {
+        return categoryID;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategoryID(int categoryID) {
+        this.categoryID = categoryID;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getImageBase64() {
@@ -96,27 +94,29 @@ public class Item implements Serializable {
 
         Item item = (Item) o;
 
+        if (categoryID != item.categoryID) return false;
         if (id != item.id) return false;
         if (temperatureIndex != item.temperatureIndex) return false;
-        if (category != null ? !category.equals(item.category) : item.category != null) return false;
+        if (isAvailable != item.isAvailable) return false;
         if (colorHexa != null ? !colorHexa.equals(item.colorHexa) : item.colorHexa != null) return false;
         return imageBase64 != null ? imageBase64.equals(item.imageBase64) : item.imageBase64 == null;
     }
 
     @Override
     public int hashCode() {
-        int result = category != null ? category.hashCode() : 0;
+        int result = categoryID;
         result = 31 * result + id;
         result = 31 * result + (colorHexa != null ? colorHexa.hashCode() : 0);
         result = 31 * result + temperatureIndex;
         result = 31 * result + (imageBase64 != null ? imageBase64.hashCode() : 0);
+        result = 31 * result + (isAvailable ? 1 : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "Item{" +
-                "category=" + category +
+                "categoryID=" + categoryID +
                 ", id='" + id + '\'' +
                 ", colorHexa=" + colorHexa +
                 ", temperatureIndex=" + temperatureIndex +
