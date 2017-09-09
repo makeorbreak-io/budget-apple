@@ -120,7 +120,7 @@ public class NewsService extends Thread {
      * @param jsonObject
      * @param sourceID
      */
-    private void getSource(JSONObject jsonObject, String sourceID) {
+    public void getSource(JSONObject jsonObject, String sourceID) {
         JSONArray sourceList = (JSONArray) jsonObject.get("sources");
 
         for (Object jsonObj : sourceList) {

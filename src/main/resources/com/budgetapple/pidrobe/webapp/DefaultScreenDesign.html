@@ -7,48 +7,44 @@
  </head>
  <body>
   <vaadin-vertical-layout size-full>
-   <vaadin-horizontal-layout size-full>
+   <vaadin-horizontal-layout primary-style-name="v-horizontallayout backColorBlue" size-full>
     <vaadin-absolute-layout responsive :center>
-     <vaadin-label :top="26px" :left="122px">
+     <vaadin-label _id="dateLabel" :top="26px" :left="122px">
       <b>9 de Setembro , 16:21</b>
      </vaadin-label>
-     <vaadin-label :top="176px" :left="287px">
-      <font size="190">22ºC</font>
+     <vaadin-label _id="currentTempLabel" :top="176px" :left="287px">
+      <font size="7">22ºC</font>
      </vaadin-label>
-     <vaadin-label plain-text :top="69px" :left="102px">
+     <vaadin-label plain-text _id="maxTempLabel" :top="69px" :left="102px">
        Max (ºC) 
      </vaadin-label>
-     <vaadin-label plain-text :top="69px" :left="243px">
+     <vaadin-label plain-text _id="minTempLabel" :top="69px" :left="243px">
        Min (ºC) 
      </vaadin-label>
     </vaadin-absolute-layout>
-    <vaadin-vertical-layout size-full>
-     <vaadin-image caption="IMAGE"></vaadin-image>
-     <vaadin-label plain-text>
-       Mostly Sunny 
-     </vaadin-label>
-     <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" style-name="borderless borderless-colored" plain-text>
+    <vaadin-vertical-layout size-full _id="weatherImageLayout">
+     <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" style-name="borderless borderless-colored" plain-text _id="myClosetButton" :bottom :center>
        MyCloset 
      </vaadin-button>
     </vaadin-vertical-layout>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout size-full>
     <vaadin-vertical-layout size-full :center>
-     <vaadin-horizontal-layout caption="News Source" size-full>
+     <vaadin-horizontal-layout caption="News Source" size-full _id="newsLayout">
       <vaadin-vertical-layout size-auto :center>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="news1Title">
          NEWS1 
        </vaadin-label>
        <vaadin-image></vaadin-image>
       </vaadin-vertical-layout>
       <vaadin-vertical-layout size-auto :center>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="news2Title">
          NEWS2 
        </vaadin-label>
        <vaadin-image></vaadin-image>
       </vaadin-vertical-layout>
       <vaadin-vertical-layout size-auto :center>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="news3Title">
          NEWS3 
        </vaadin-label>
        <vaadin-image></vaadin-image>

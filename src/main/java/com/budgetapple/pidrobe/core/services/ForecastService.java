@@ -24,15 +24,17 @@ public class ForecastService extends Thread {
     private static String BASE_URL = "http://api.openweathermap.org/data/2.5/forecast?";
     private static Forecast forecast = null;
     private String appId;
-
+    private String cityId;
     /**
      * Constructor
      *
      * @param appId API key
      */
-    public ForecastService(String appId) {
+    public ForecastService(String appId,String cityId) {
         this.appId = appId;
+        this.cityId = cityId;
     }
+
 
     public static Forecast getForecast() {
         return forecast;
@@ -41,8 +43,7 @@ public class ForecastService extends Thread {
     @Override
     public void run() {
         try {
-            //TODO Change to PiDrobe.getInstance.getCity()
-            forecast = getForecast("Porto");
+            forecast = getForecast(cityId);
 
             Thread.sleep(TIMEOUT);
         } catch (InterruptedException e) {

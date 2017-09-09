@@ -47,6 +47,12 @@
           <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-util:9.1.1.v20140108" />
           <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-io:9.1.1.v20140108" />
           <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-continuation:9.1.1.v20140108" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.2.3" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.2.3" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.2.3" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.2.3" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.2.3" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.2.3" />
         </element>
       </element>
       <element id="directory" name="META-INF">

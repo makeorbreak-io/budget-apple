@@ -26,4 +26,8 @@ public class NewsFeed implements Serializable {
     public boolean removeNews(News news) {
         return newsList.remove(news);
     }
+
+    public String getSource(){
+       return newsList.get(0).getSource();
+    }
 }

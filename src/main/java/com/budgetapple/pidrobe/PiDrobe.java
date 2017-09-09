@@ -20,6 +20,8 @@ public class PiDrobe implements Serializable {
 
     private static PiDrobe instance;
 
+    private ForecastService forecastService;
+
     private List<Item> allItems;
 
     private List<Category> allCategories;
@@ -42,6 +44,7 @@ public class PiDrobe implements Serializable {
         this.allItems = new LinkedList<>();
         this.allPresets = new LinkedList<>();
         this.allCategories = new LinkedList<>();
+        this.forecastService = new ForecastService("f26768c8c6cae1724b64060af97ecff9","2735941");
 
         load();
     }
