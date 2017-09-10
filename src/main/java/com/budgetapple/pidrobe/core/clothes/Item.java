@@ -32,8 +32,7 @@ public class Item implements Serializable {
     }
 
     @JsonCreator
-    public Item(@JsonProperty("id") int id,
-                @JsonProperty("categoryID") int categoryID,
+    public Item(@JsonProperty("categoryID") int categoryID,
                 @JsonProperty("image") String imageBase64,
                 @JsonProperty("color_hexa") String colorHexa,
                 @JsonProperty("temperature_index") int temperatureIndex,

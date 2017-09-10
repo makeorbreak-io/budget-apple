@@ -26,7 +26,6 @@ public class ItemService {
         for (Item i : items) {
             JSONObject object = new JSONObject();
 
-            object.put("id", i.getId());
             object.put("categoryID", i.getCategoryID());
             object.put("color", i.getColorHexa());
             object.put("temperature_index", i.getTemperatureIndex());
