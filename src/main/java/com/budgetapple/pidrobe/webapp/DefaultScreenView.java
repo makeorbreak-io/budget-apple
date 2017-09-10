@@ -54,6 +54,7 @@ public class DefaultScreenView extends DefaultScreenDesign implements View {
         genders.add("Male");
         genders.add("Female");
 
+        genderComboBox.setEmptySelectionAllowed(false);
         genderComboBox.setItems(genders);
 
         genderComboBox.addValueChangeListener(event -> {
@@ -102,11 +103,9 @@ public class DefaultScreenView extends DefaultScreenDesign implements View {
 
         //Template for the Weather Image loader Algorithm
         if (theController.weatherDesc().equalsIgnoreCase("clear sky")) {
-            weatherImage.setSource(new FileResource(new File("../src/main/resources/" +
-                    "com/budgetapple/pidrobe/icons/weather/clear.png")));
+            weatherImage.setSource(new FileResource(new File("files/weather/clear.png")));
         } else if (theController.weatherDesc().equalsIgnoreCase("light rain")) {
-            weatherImage.setSource(new FileResource(new File("../src/main/resources/" +
-                    "com/budgetapple/pidrobe/icons/weather/rain.png")));
+            weatherImage.setSource(new FileResource(new File("files/weather/rain.png")));
         }
     }
 
