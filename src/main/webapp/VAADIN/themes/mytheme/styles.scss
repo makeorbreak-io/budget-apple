@@ -6,6 +6,8 @@
 // The actual styles should be defined in mytheme.scss
 
 .mytheme {
+  @include vaadin-tiles-template;
+  @include vaadin-crud-template;
   @include vaadin-form-template;
   @include vaadin-app-shell-template;
   @include addons;

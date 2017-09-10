@@ -37,7 +37,7 @@ public class DefaultScreenView extends DefaultScreenDesign implements View {
         theController = new DefaultScreenController();
         labelsLogic();
         weatherImageLoader();
-
+        buttonAction();
     }
 
     /**
@@ -46,16 +46,21 @@ public class DefaultScreenView extends DefaultScreenDesign implements View {
     private void labelsLogic() {
 
         //Displays the current date ("yyy/MM/dd")
-        dateLabel.setValue("<b>"+theController.localDate()+"</b>");
+        dateLabel.setValue("<b><font color=\"white\">"+theController.localDate()+"</font></b>");
 
         //Displays the maximum temp expected for the day
-        maxTempLabel.setValue("Max (ºC) " + theController.maxTemp());
+        maxTempLabel.setValue("<b><font color=\"white\"> Max (ºC) " + theController.maxTemp()+"</font></b>");
 
         //Displays the minimum temp expected for the day
-        minTempLabel.setValue("Min (ºC) " + theController.minTemp());
+        minTempLabel.setValue("<b><font color=\"white\"> Min (ºC) " + theController.minTemp()+"</font></b>");
 
         //Displays the current temp
-        currentTempLabel.setValue("<font size=\"190\">"+theController.currentTemp()+"ºC</font>");
+        currentTempLabel.setValue("<font size=\"7\" color=\"white\">"+theController.currentTemp()+"ºC</font>");
+
+        //Chance of Precipitation
+        precipLabel.setValue("<b><font color=\"white\"> Chance of Precipitation (%) "
+                + theController.chanceOfPrecipitation()+"</font></b>");
+
 
     }
 
@@ -65,9 +70,9 @@ public class DefaultScreenView extends DefaultScreenDesign implements View {
     private void weatherImageLoader(){
 
         //Template
-        weatherImageLayout.addComponentAsFirst(new Image("Clear",
-                new FileResource(new File("/home/ricardo/BudgetApple (Porto Summer Code)" +
-                        "/src/main/resources/com/budgetapple/pidrobe/icons/clear.png"))));
+        weatherImageLayout.addComponent(new Image(null,
+                new FileResource(new File("/home/ricardo/BudgetApple (Porto Summer Code)/src/main/resources/" +
+                        "com/budgetapple/pidrobe/icons/clear.png"))));
 
     }
 
@@ -90,7 +95,8 @@ public class DefaultScreenView extends DefaultScreenDesign implements View {
     private void buttonAction(){
 
         myClosetButton.addClickListener(clickEvent -> {
-           //navigator.navigateTo();
+            //FIXME java.lang.IllegalArgumentException: bound must be positive
+          // navigator.navigateTo(DisplayOutfitView.NAME);
         });
     }
 

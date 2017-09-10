@@ -3,6 +3,7 @@ package com.budgetapple.pidrobe.core.services;
 import com.budgetapple.pidrobe.core.weather.Forecast;
 import com.budgetapple.pidrobe.core.weather.Temperature;
 import com.budgetapple.pidrobe.core.weather.Weather;
+import com.budgetapple.pidrobe.core.weather.Wind;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -66,6 +67,7 @@ public class ForecastService extends Thread {
 
             JSONArray jsonWeatherArray = (JSONArray) json.get("list");
 
+            System.out.println(jsonWeatherArray.toJSONString());
             for (Object obj :
                     jsonWeatherArray) {
                 listWeathers.add(parseWeather((JSONObject) obj));
@@ -121,6 +123,11 @@ public class ForecastService extends Thread {
         if (snow != null) {
             weather.setSnow((Double) rain.get("3h"));
         }
+
+       /* JSONObject wind = (JSONObject) jsonWeather.get("wind");
+        if (wind != null) {
+            weather.setWind(new Wind((Double)jsonWeather.get("speed"),(Double)jsonWeather.get("deg")));
+        }*/
 
         return weather;
     }

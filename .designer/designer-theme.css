@@ -13007,3 +13007,11 @@ div.v-layout.v-horizontal.v-widget {
 	-moz-animation: valo-animate-slide-right 200ms 100ms;
 	animation: valo-animate-slide-right 200ms 100ms;
 }
+
+.mytheme .backColorBlue {
+	background-color: #63a6ac;
+}
+
+.mytheme .backColorWhite {
+	background-color: #e7e9f4;
+}

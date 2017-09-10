@@ -8,25 +8,26 @@
  <body>
   <vaadin-vertical-layout size-full>
    <vaadin-horizontal-layout primary-style-name="v-horizontallayout backColorBlue" size-full>
-    <vaadin-absolute-layout responsive :center>
+    <vaadin-absolute-layout responsive>
      <vaadin-label _id="dateLabel" :top="26px" :left="122px">
-      <b>9 de Setembro , 16:21</b>
+      <b><font color="white">9 de Setembro , 16:21</font></b>
      </vaadin-label>
      <vaadin-label _id="currentTempLabel" :top="176px" :left="287px">
       <font size="7">22ºC</font>
      </vaadin-label>
-     <vaadin-label plain-text _id="maxTempLabel" :top="69px" :left="102px">
+     <vaadin-label _id="maxTempLabel" :top="69px" :left="102px">
        Max (ºC) 
      </vaadin-label>
-     <vaadin-label plain-text _id="minTempLabel" :top="69px" :left="243px">
+     <vaadin-label _id="minTempLabel" :top="69px" :left="243px">
        Min (ºC) 
      </vaadin-label>
+     <vaadin-label _id="precipLabel" :top="287px" :left="89px">
+       Chance of Precipitation(%): 
+     </vaadin-label>
     </vaadin-absolute-layout>
-    <vaadin-vertical-layout size-full _id="weatherImageLayout">
-     <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" style-name="borderless borderless-colored" plain-text _id="myClosetButton" :bottom :center>
-       MyCloset 
-     </vaadin-button>
-    </vaadin-vertical-layout>
+    <vaadin-horizontal-layout size-full :right>
+     <vaadin-css-layout size-full _id="weatherImageLayout" :middle :right></vaadin-css-layout>
+    </vaadin-horizontal-layout>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout size-full>
     <vaadin-vertical-layout size-full :center>
@@ -49,6 +50,9 @@
        </vaadin-label>
        <vaadin-image></vaadin-image>
       </vaadin-vertical-layout>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" style-name="borderless borderless-colored" plain-text _id="myClosetButton">
+        MyCloset 
+      </vaadin-button>
      </vaadin-horizontal-layout>
     </vaadin-vertical-layout>
    </vaadin-horizontal-layout>

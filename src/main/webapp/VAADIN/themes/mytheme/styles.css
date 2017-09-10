@@ -1631,6 +1631,187 @@ div.v-layout.v-horizontal.v-widget {
 	vertical-align: top;
 }
 
+.mytheme .tiles {
+	padding: 6.16667px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.mytheme .tiles .padding {
+	padding: 12.33333px;
+}
+
+.mytheme .tiles .padding-top {
+	padding-top: 12.33333px;
+}
+
+.mytheme .tiles .padding-right {
+	padding-right: 12.33333px;
+}
+
+.mytheme .tiles .padding-bottom {
+	padding-bottom: 12.33333px;
+}
+
+.mytheme .tiles .padding-left {
+	padding-left: 12.33333px;
+}
+
+.mytheme .tiles .row {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.mytheme .tiles .tile {
+	float: left;
+	padding: 6.16667px;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.mytheme .tiles .title {
+	font-size: 16px;
+	color: #197de1;
+	text-transform: uppercase;
+	margin-bottom: 9.25px;
+}
+
+.mytheme .tiles .tile-content {
+	background: white;
+	border: 1px solid #efefef;
+	font-size: 14.4px;
+}
+
+.mytheme .tiles .full {
+	width: 100%;
+}
+
+.mytheme .tiles .two-thirds {
+	width: 66.66%;
+}
+
+.mytheme .tiles .half {
+	width: 50%;
+}
+
+.mytheme .tiles .third {
+	width: 33.33%;
+}
+
+.mytheme .tiles .quarter {
+	width: 25%;
+}
+
+.mytheme .tiles[width-range~="-750px"] .two-thirds, .mytheme .tiles[width-range~="-750px"] .half, .mytheme .tiles[width-range~="-750px"] .third, .mytheme .tiles[width-range~="-750px"] .quarter {
+	width: 100%;
+}
+
+.mytheme .crud-template .top-bar {
+	background: white;
+	color: #197de1;
+	padding: 0 18.5px;
+	border-bottom: 1px solid #c5c5c5;
+}
+
+.mytheme .crud-template .padding {
+	padding: 18.5px;
+}
+
+.mytheme .crud-template .border {
+	border: 1px solid #c5c5c5;
+}
+
+.mytheme .crud-template .border-top {
+	border-top: 1px solid #c5c5c5;
+}
+
+.mytheme .crud-template .border-left {
+	border-left: 1px solid #c5c5c5;
+}
+
+.mytheme .crud-template .filters {
+	padding: 9.25px;
+}
+
+.mytheme .crud-template .filters .v-slot {
+	position: relative;
+}
+
+.mytheme .crud-template .content {
+	position: relative;
+}
+
+.mytheme .crud-template .list {
+	padding-right: 300px;
+}
+
+.mytheme .crud-template .inspect {
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: #ededed;
+	width: 300px !important;
+	border-left: 4px solid #e0e0e0;
+}
+
+.mytheme .crud-template .section {
+	padding: 9.25px;
+}
+
+.mytheme .crud-template .edit {
+	padding: 9.25px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	border-left: 1px solid #d4d4d4;
+	border-top: 1px solid #d4d4d4;
+}
+
+.mytheme .crud-template .search {
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	border-bottom: 2px solid #197de1;
+	border-radius: 0;
+	max-width: 350px;
+}
+
+.mytheme .crud-template .buttons {
+	background: #fafafa;
+	padding: 9.25px;
+	border-left: 1px solid #d4d4d4;
+}
+
+.mytheme .crud-template[width-range~="-850px"] .list {
+	height: 50% !important;
+	padding-right: 0;
+}
+
+.mytheme .crud-template[width-range~="-850px"] .inspect {
+	position: static;
+	height: 50% !important;
+	width: 100% !important;
+	border-top: 4px solid #e0e0e0;
+	border-left: none;
+}
+
+.mytheme .crud-template[width-range~="-850px"] .section, .mytheme .crud-template[width-range~="-850px"] .edit {
+	padding: 4.625px;
+}
+
+.mytheme .crud-template[width-range~="-850px"] .half {
+	width: 50% !important;
+	float: left;
+}
+
+.mytheme .crud-template[width-range~="-650px"] .half {
+	width: 100% !important;
+}
+
 .mytheme .form-template {
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -15093,7 +15274,7 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .mytheme .backColorBlue {
-	background-color: #387dac;
+	background-color: #63a6ac;
 }
 
 .mytheme .backColorWhite {

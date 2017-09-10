@@ -4,6 +4,8 @@ import com.budgetapple.pidrobe.PiDrobe;
 import com.budgetapple.pidrobe.core.newsfeed.News;
 import com.budgetapple.pidrobe.core.weather.Temperature;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -36,14 +38,14 @@ public class DefaultScreenController {
      * Method that retrieves the current temperature
      */
     private void temperature(){
-       currentTemperature = piDrobe.getForecast().getCurrent().getTemperature();
+      currentTemperature = piDrobe.getForecast().getCurrent().getTemperature();
     }
     /**
      * Return the maximum temp
      * @return maximum temp
      */
     public String maxTemp(){
-        return String.valueOf(currentTemperature.getMaximum());
+        return String.valueOf(round(toCelcius(currentTemperature.getMaximum()),1));
     }
 
     /**
@@ -51,7 +53,7 @@ public class DefaultScreenController {
      * @return minimum temp
      */
     public String minTemp(){
-        return String.valueOf(currentTemperature.getMinimum());
+        return String.valueOf(round(toCelcius(currentTemperature.getMinimum()),1));
     }
 
     /**
@@ -59,7 +61,16 @@ public class DefaultScreenController {
      * @return current temp
      */
     public String currentTemp(){
-        return String.valueOf(currentTemperature.getCurrent());
+        return String.valueOf(round(toCelcius(currentTemperature.getCurrent()),0));
+
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String chanceOfPrecipitation(){
+       return String.valueOf(round(piDrobe.getForecast().getCurrent().getRain(),2));
     }
 
     /**
@@ -78,6 +89,21 @@ public class DefaultScreenController {
         return piDrobe.getNewsFeed().getNews();
     }
 
+    /**
+     *
+     * @param value
+     * @return
+     */
+    private double toCelcius(Double value) {
+        return value-272.15;
+    }
 
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
 
 }
