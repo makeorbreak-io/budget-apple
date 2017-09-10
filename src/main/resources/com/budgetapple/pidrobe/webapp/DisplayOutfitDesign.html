@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-horizontal-layout size-full>
+   <vaadin-vertical-layout size-full :middle :expand>
+    <vaadin-horizontal-layout size-full :expand>
+     <vaadin-label plain-text _id="temperatureLabel" :center>
+       Temperature Placeholder 
+     </vaadin-label>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout size-full :expand>
+     <vaadin-label size-full _id="suggestionLabel" :middle :right>
+      <b>Your suggested outfit for today</b>
+     </vaadin-label>
+    </vaadin-horizontal-layout>
+    <vaadin-vertical-layout size-full margin="false" :expand>
+     <vaadin-button width="60%" height-full plain-text _id="selectSavedPreset" :middle :center :expand>
+       Select Preset 
+     </vaadin-button>
+     <vaadin-button width="60%" height-full plain-text _id="saveNewPreset" :middle :center :expand>
+       Save 
+     </vaadin-button>
+     <vaadin-button width="60%" height-full _id="backButton" :middle :center :expand>
+       Back 
+     </vaadin-button>
+    </vaadin-vertical-layout>
+   </vaadin-vertical-layout>
+   <vaadin-vertical-layout size-full margin="false" :expand>
+    <vaadin-vertical-layout size-full _id="verticalLayoutOutfit" :expand>
+     <vaadin-horizontal-layout size-full _id="horizontalLayoutUpperBody">
+      <vaadin-vertical-layout size-full margin="false" _id="verticalLayoutUpper1" :expand></vaadin-vertical-layout>
+      <vaadin-vertical-layout size-full margin="false" _id="verticalLayoutUpper2" :expand></vaadin-vertical-layout>
+     </vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
+   </vaadin-vertical-layout>
+  </vaadin-horizontal-layout>
+ </body>
+</html>

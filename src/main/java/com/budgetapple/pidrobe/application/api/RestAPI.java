@@ -1,6 +1,5 @@
 package com.budgetapple.pidrobe.application.api;
 
-import com.budgetapple.pidrobe.PiDrobe;
 import com.budgetapple.pidrobe.core.clothes.Item;
 import com.budgetapple.pidrobe.core.services.ItemService;
 

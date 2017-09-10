@@ -69,4 +69,20 @@ public class Outfit implements Serializable {
     public void setFootwearItem(Item footwearItem) {
         this.footwear = footwearItem;
     }
+
+    public LinkedHashMap<Integer, Item> getUpperBody() {
+        return upperBody;
+    }
+
+    public Item getLowerBody() {
+        return lowerBody;
+    }
+
+    public Item getFootwear() {
+        return footwear;
+    }
+
+    public List<Item> getAccessories() {
+        return accessories;
+    }
 }

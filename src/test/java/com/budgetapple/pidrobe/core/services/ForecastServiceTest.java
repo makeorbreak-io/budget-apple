@@ -1,7 +1,5 @@
 package com.budgetapple.pidrobe.core.services;
 
-import com.budgetapple.pidrobe.core.weather.Forecast;
-import org.junit.Assert;
 import org.junit.Test;
 
 /**

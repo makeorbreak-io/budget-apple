@@ -1,21 +1,13 @@
 package com.budgetapple.pidrobe;
 
-import javax.servlet.annotation.WebServlet;
-
-import com.budgetapple.pidrobe.webapp.DefaultScreenDesign;
 import com.budgetapple.pidrobe.webapp.DefaultScreenView;
+import com.budgetapple.pidrobe.webapp.DisplayOutfitView;
 import com.budgetapple.pidrobe.webapp.FrontPageCityView;
 import com.budgetapple.pidrobe.webapp.FrontPageView;
 import com.vaadin.annotations.Theme;
-import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window
@@ -41,6 +33,7 @@ public class MyUI extends UI {
         navigator.addView(FrontPageView.NAME, FrontPageView.class);
         navigator.addView(FrontPageCityView.NAME,FrontPageCityView.class);
         navigator.addView(DefaultScreenView.NAME,DefaultScreenView.class);
+        navigator.addView(DisplayOutfitView.NAME,DisplayOutfitView.class);
 
         navigator.navigateTo(FrontPageView.NAME);
 
