@@ -33,7 +33,7 @@ class ItemService
     func postItem(item: Item){
         let url = URL(string: "\(itemBaseUrl!)/add")
         let networkProcessor = NetworkProcessor(url: url!)
-        networkProcessor.postJSON(body: item.toJson())
+        networkProcessor.postJSON(json: item.toJson())
         
     }
 }

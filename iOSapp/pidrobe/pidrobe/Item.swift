@@ -22,7 +22,7 @@ class Item: NSObject{
     // MARK: - Keys
     struct Keys{
         static let id = "id"
-        static let categoryId = "category"
+        static let categoryId = "category_id"
         static let colorHex = "color_hexa"
         static let imageBase64 = "image"
         static let temperatureIndex = "temperature_index"
@@ -48,7 +48,7 @@ class Item: NSObject{
         self.isAvailable = dictionary[Keys.isAvailable] as? Bool
     }
     
-    func toJson() -> String{
-        return "{\"id\": \(id!), \"category\": \(categoryId!), \"color_hexa\": \(colorHex!), \"temperature_index\": \(temperatureIndex!),\"image\": \(imageBase64!),\"available\": \(isAvailable!)}"
+    func toJson() -> [String:Any]{
+        return [Keys.id : id!, Keys.categoryId : categoryId!, Keys.colorHex : colorHex!, Keys.temperatureIndex : temperatureIndex!, Keys.imageBase64 : imageBase64!, Keys.isAvailable : isAvailable!]
     }
 }

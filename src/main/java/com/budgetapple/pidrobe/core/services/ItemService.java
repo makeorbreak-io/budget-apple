@@ -26,19 +26,17 @@ public class ItemService {
         for (Item i : items) {
             JSONObject object = new JSONObject();
 
-            object.put("categoryID", i.getCategoryID());
-            object.put("color", i.getColorHexa());
+            object.put("id", i.getId());
+            object.put("category_id", i.getCategoryID());
+            object.put("color_hexa", i.getColorHexa());
             object.put("temperature_index", i.getTemperatureIndex());
             object.put("available", i.isAvailable());
+            object.put("image", i.getImageBase64());
 
             array.add(object);
         }
 
-        JSONObject response = new JSONObject();
-
-        response.put("items", array);
-
-        return response.toJSONString();
+        return array.toJSONString();
     }
 
     public boolean addNewItem(Item item) {

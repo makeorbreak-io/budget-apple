@@ -32,12 +32,17 @@ public class Item implements Serializable {
     }
 
     @JsonCreator
-    public Item(@JsonProperty("categoryID") int categoryID,
+    public Item(@JsonProperty("id") int id,
+                @JsonProperty("category_id") int categoryID,
                 @JsonProperty("image") String imageBase64,
                 @JsonProperty("color_hexa") String colorHexa,
                 @JsonProperty("temperature_index") int temperatureIndex,
                 @JsonProperty("available") boolean isAvailable) {
-        this.id = ++counter;
+        if(id == -1) {
+            this.id = ++counter;
+        }else{
+            this.id = id;
+        }
         this.categoryID = categoryID;
         this.imageBase64 = imageBase64;
         this.colorHexa = colorHexa;
@@ -96,13 +101,8 @@ public class Item implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
 
         Item item = (Item) o;
-
-        if (categoryID != item.categoryID) return false;
-        if (id != item.id) return false;
-        if (temperatureIndex != item.temperatureIndex) return false;
-        if (isAvailable != item.isAvailable) return false;
-        if (colorHexa != null ? !colorHexa.equals(item.colorHexa) : item.colorHexa != null) return false;
-        return imageBase64 != null ? imageBase64.equals(item.imageBase64) : item.imageBase64 == null;
+        if (id == item.id) return true;
+        return false;
     }
 
     @Override

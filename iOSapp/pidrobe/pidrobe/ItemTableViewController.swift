@@ -37,6 +37,7 @@ class ItemTableViewController: UITableViewController {
             // Save the items.
             let service = ItemService()
             service.postItem(item: item)
+            loadItems()
         }
     }
     
@@ -47,6 +48,8 @@ class ItemTableViewController: UITableViewController {
         generateCategories()
         loadItems()
         
+        //Add refresh on table
+        refreshControl = UIRefreshControl()
         self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
 
@@ -205,6 +208,9 @@ class ItemTableViewController: UITableViewController {
             (items) in
             // OFF THE MAIN QUEUE
             DispatchQueue.main.async {
+                for i in 1...self.categories.count{
+                    self.items[i - 1] = [Item]()
+                }
                 for item in items! {
                     self.items[item.categoryId!].append(item)
                 }

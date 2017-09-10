@@ -21,7 +21,7 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var colorPickView: UIView!
     
     var item: Item?
-    var categories = ["Coat", "Flip Flop", "Jacket", "Shoes","Shorts", "Sleeves", "Suit", "Sweater", "Trousers", "T-Shirt", "Vest"]
+    var categories = ["Boots", "Coat", "Flip Flop", "Jacket", "Shoes","Shorts", "Sleeves", "Suit", "Sweater", "Trousers", "T-Shirt", "Vest"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +33,13 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.categoryPicker.dataSource = self
     
         let neatColorPicker = ChromaColorPicker(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
-        neatColorPicker.center = CGPoint(x: colorPickView.frame.size.width  / 2,y: colorPickView.frame.size.height / 2);
         neatColorPicker.delegate = self //ChromaColorPickerDelegate
         neatColorPicker.padding = 8
         neatColorPicker.stroke = 8
         neatColorPicker.hexLabel.textColor = UIColor.black
         
         colorPickView.addSubview(neatColorPicker)
+        neatColorPicker.center = CGPoint(x: colorPickView.frame.size.width  / 2,y: colorPickView.frame.size.height / 2);
         
         // Do any additional setup after loading the view.
         
@@ -96,16 +96,16 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     @IBAction func cancelClick(_ sender: UIBarButtonItem) {
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
-        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        let isPresentingInAddItemMode = presentingViewController is UINavigationController
         
-        if isPresentingInAddMealMode {
+        if isPresentingInAddItemMode {
             dismiss(animated: true, completion: nil)
         }
         else if let owningNavigationController = navigationController{
             owningNavigationController.popViewController(animated: true)
         }
         else {
-            fatalError("The MealViewController is not inside a navigation controller.")
+            fatalError("The ItemViewController is not inside a navigation controller.")
         }
     }
     
@@ -135,7 +135,7 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 let color = colorField.text
                 
                 // Set the meal to be passed to MealTableViewController after the unwind segue.
-                item = Item(id: 0, categoryId: categoryID, colorHex: color!, temperatureIndex: temperatureIndex, imageBase64: photoBase64!, isAvailable: true)
+                item = Item(id: -1, categoryId: categoryID, colorHex: color!, temperatureIndex: temperatureIndex, imageBase64: photoBase64!, isAvailable: true)
             }
         }
         
@@ -190,6 +190,6 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let color = colorField.text ?? ""
         let category = categoryField.text ?? ""
         let image = photo.image
-        saveButton.isEnabled = !color.isEmpty && !category.isEmpty && image != #imageLiteral(resourceName: "defaultPhoto")
+        saveButton.isEnabled = !color.isEmpty && !category.isEmpty //&& image != #imageLiteral(resourceName: "defaultPhoto")
     }
 }
