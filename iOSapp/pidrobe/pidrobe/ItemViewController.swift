@@ -21,7 +21,9 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var colorPickView: UIView!
     
     var item: Item?
+    var id = -1
     var categories = ["Boots", "Coat", "Flip Flop", "Jacket", "Shoes","Shorts", "Sleeves", "Suit", "Sweater", "Trousers", "T-Shirt", "Vest"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +54,7 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             colorField.text = item.colorHex
             categoryField.text = categories[item.categoryId!]
             heatSlider.value = Float(item.temperatureIndex!)
+            id = item.id!
         }
         
         updateSaveButtonState()
@@ -135,7 +138,7 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 let color = colorField.text
                 
                 // Set the meal to be passed to MealTableViewController after the unwind segue.
-                item = Item(id: -1, categoryId: categoryID, colorHex: color!, temperatureIndex: temperatureIndex, imageBase64: photoBase64!, isAvailable: true)
+                item = Item(id: id, categoryId: categoryID, colorHex: color!, temperatureIndex: temperatureIndex, imageBase64: photoBase64!, isAvailable: true)
             }
         }
         

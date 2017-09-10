@@ -15,6 +15,8 @@ class ItemTableViewController: UITableViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     var items = [[Item]]()
     var categories = [Category]()
+    
+    var temp_label = ["Freezing Weather" , "Cold Weather", "Mild Weather", "Warm Weather", "Hot Weather"]
 
     //MARK: Actions
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
@@ -100,7 +102,7 @@ class ItemTableViewController: UITableViewController {
         let item = self.items[indexPath.section][indexPath.row]
         
         cell.colorLabel.text = item.colorHex
-        cell.temperatureLabel.text = "\(item.temperatureIndex!)"
+        cell.temperatureLabel.text = "\(temp_label[item.temperatureIndex!])"
         if let decodedData = Data(base64Encoded: item.imageBase64!, options: .ignoreUnknownCharacters) {
             cell.photo.image = UIImage(data: decodedData)
         }

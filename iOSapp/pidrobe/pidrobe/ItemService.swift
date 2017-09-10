@@ -13,7 +13,7 @@ class ItemService
     let itemBaseUrl: URL?
     
     init() {
-        itemBaseUrl = URL(string: "http://localhost:8080/rest/api/items")
+        itemBaseUrl = URL(string: "http://192.168.43.122:8080/rest/api/items")
     }
     
     //Gets All Items
