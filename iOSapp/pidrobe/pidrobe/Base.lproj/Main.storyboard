@@ -68,7 +68,7 @@
                                     <outlet property="colorLabel" destination="mZG-8A-y55" id="QbX-jD-Fu6"/>
                                     <outlet property="photo" destination="S77-dX-4F1" id="gsR-KD-zax"/>
                                     <outlet property="temperatureLabel" destination="Vme-Mk-gka" id="nL5-ul-0VK"/>
-                                    <segue destination="jOR-h0-49e" kind="show" identifier="ShowDetail" action="showDetailViewController:sender:" id="iaP-qr-CEA"/>
+                                    <segue destination="jOR-h0-49e" kind="show" identifier="ShowDetail" id="Qvi-XF-U5c"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -118,6 +118,7 @@
                                             </label>
                                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="rnm-1g-O06">
                                                 <rect key="frame" x="0.0" y="18" width="263" height="260.5"/>
+                                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="rnm-1g-O06" secondAttribute="height" multiplier="101:100" id="naY-jx-aQ0"/>
@@ -237,6 +238,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="categoryField" destination="RUS-y8-jwa" id="dbm-F5-ZCA"/>
                         <outlet property="categoryPicker" destination="2vD-23-fgP" id="Rf4-gH-dF8"/>
@@ -300,6 +302,6 @@
         <image name="hot_icon" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iaP-qr-CEA"/>
+        <segue reference="Qvi-XF-U5c"/>
     </inferredMetricsTieBreakers>
 </document>

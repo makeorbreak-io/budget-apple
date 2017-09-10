@@ -190,6 +190,6 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let color = colorField.text ?? ""
         let category = categoryField.text ?? ""
         let image = photo.image
-        saveButton.isEnabled = !color.isEmpty && !category.isEmpty //&& image != #imageLiteral(resourceName: "defaultPhoto")
+        saveButton.isEnabled = !color.isEmpty && !category.isEmpty && image != #imageLiteral(resourceName: "defaultPhoto")
     }
 }
