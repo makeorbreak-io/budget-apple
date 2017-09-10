@@ -8,7 +8,7 @@ import java.io.*;
 public class IO {
 
     public static void writeToBinFile(String fileName, Object object) throws IOException {
-        FileOutputStream fos = new FileOutputStream(fileName);
+        FileOutputStream fos = new FileOutputStream(fileName + ".bin");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
 
         oos.writeObject(object);
@@ -17,11 +17,11 @@ public class IO {
 
     public static Object readBinFile(String fileName) throws IOException, ClassNotFoundException {
         ObjectInputStream objectinputstream = null;
-        Object object = null;
+        Object object;
 
         try {
             //Get path
-            File currDir = new File(fileName);
+            File currDir = new File(fileName + ".bin");
             String path = currDir.getAbsolutePath();
 
             FileInputStream streamIn = new FileInputStream(path);
