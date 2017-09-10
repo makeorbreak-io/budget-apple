@@ -67,7 +67,10 @@ public class PiDrobe implements Serializable {
 
     public boolean addItem(Item item) {
         for(Item i: allItems){
-            if(i.id == item.id) removeItem(i);
+            if(i.id == item.id){
+                removeItem(i);
+                break;
+            }
         }
         return this.allItems.add(item);
     }
