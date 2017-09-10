@@ -9,14 +9,12 @@ import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.server.FileResource;
 import com.vaadin.ui.UI;
+import com.vaadin.ui.Window;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Base64;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
 public class DisplayOutfitView extends DisplayOutfitDesign implements View {
 
@@ -45,7 +43,7 @@ public class DisplayOutfitView extends DisplayOutfitDesign implements View {
         lowerBody = outfit.getLowerBody();
         footwear = outfit.getFootwear();
 
-        LinkedHashMap<Integer, Item> upperBodyMap = outfit.getUpperBody();
+        List<Item> upperBodyMap = outfit.getUpperBody();
 
         byte[] imageLowerBodyByte = Base64.getDecoder().decode(lowerBody.getImageBase64());
         byte[] imageFootwearByte = Base64.getDecoder().decode(footwear.getImageBase64());
@@ -54,19 +52,18 @@ public class DisplayOutfitView extends DisplayOutfitDesign implements View {
         imagesUpperBodyByte = new byte[3][];
 
         int cont = 0;
-        for (Map.Entry<Integer, Item> entry : upperBodyMap.entrySet()) {
+        for (Item item : upperBodyMap) {
 
-            Item upperBodyItem = entry.getValue();
             if (cont == 0) {
-                imagesUpperBodyByte[0] = Base64.getDecoder().decode(upperBodyItem.getImageBase64());
+                imagesUpperBodyByte[0] = Base64.getDecoder().decode(item.getImageBase64());
             }
 
             if (cont == 1) {
-                imagesUpperBodyByte[1] = Base64.getDecoder().decode(upperBodyItem.getImageBase64());
+                imagesUpperBodyByte[1] = Base64.getDecoder().decode(item.getImageBase64());
             }
 
             if (cont == 2) {
-                imagesUpperBodyByte[2] = Base64.getDecoder().decode(upperBodyItem.getImageBase64());
+                imagesUpperBodyByte[2] = Base64.getDecoder().decode(item.getImageBase64());
             }
 
             cont++;
@@ -104,7 +101,7 @@ public class DisplayOutfitView extends DisplayOutfitDesign implements View {
 
     private void bootUpWeatherInfo() {
 
-        currentTempLabel.setValue("<font size=\"7\" color=\"white\">" + theController.currentTemp() + "ºC</font>");
+        /*currentTempLabel.setValue("<font size=\"7\" color=\"white\">" + theController.currentTemp() + "ºC</font>");
 
         if (theController.weatherDesc().equalsIgnoreCase("clear sky")) {
             weatherImage.setSource(new FileResource(new File("../src/main/resources/" +
@@ -112,7 +109,7 @@ public class DisplayOutfitView extends DisplayOutfitDesign implements View {
         } else if (theController.weatherDesc().equalsIgnoreCase("light rain")) {
             weatherImage.setSource(new FileResource(new File("../src/main/resources/" +
                     "com/budgetapple/pidrobe/icons/rain.png")));
-        }
+        }*/
 
     }
 
@@ -121,9 +118,15 @@ public class DisplayOutfitView extends DisplayOutfitDesign implements View {
             navigator.navigateTo(DefaultScreenView.NAME);
         });
 
-        /*saveNewPreset.addClickListener(clickEvent -> {
-            navigator.navigateTo(NewPresetView.NAME);
-        });*/
+        saveNewPreset.addClickListener(clickEvent -> {
+            Window window = new Window("Choose name for preset");
+            window.setParent(this);
+            window.center();
+            window.setModal(true);
+            window.setSizeFull();
+            window.setContent(new NewPresetView(window, outfit));
+            UI.getCurrent().addWindow(window);
+        });
     }
 
 }

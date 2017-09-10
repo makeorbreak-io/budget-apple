@@ -31,12 +31,14 @@ public class SuggestOutfitController {
     public Outfit generateSuggestedOutfit() {
         Outfit suggestedOutfit;
 
-        Weather weather = PiDrobe.getInstance().getForecast().getCurrent();
-        Temperature temperature = weather.getTemperature();
+        //Weather weather = PiDrobe.getInstance().getForecast().getCurrent();
+        //Temperature temperature = weather.getTemperature();
 
-        double currentTemp = temperature.getCurrent();
+        //double currentTemp = temperature.getCurrent() - 272.15;
+        double currentTemp = 22.0;
 
-        if (currentTemp > 25 && weather.getRain() == 0) {
+        //if (currentTemp > 25 && weather.getRain() == 0) {
+        if(currentTemp > 25) {
             suggestedOutfit = summerOutfit();
         } else if (currentTemp > 15) {
             suggestedOutfit = springOutfit();
@@ -80,17 +82,18 @@ public class SuggestOutfitController {
 
     private Outfit springOutfit() { //sugerir 2 peças para upper body
 
-        Weather weather = PiDrobe.getInstance().getForecast().getCurrent();
+        /*Weather weather = PiDrobe.getInstance().getForecast().getCurrent();
         Temperature temperature = weather.getTemperature();
 
-        double currentTemp = temperature.getCurrent();
+        double currentTemp = temperature.getCurrent();*/
+        double currentTemp = 22;
 
         List<Item> allSpringItems = PiDrobe.getInstance().getItemsWithTempIndex(2, 3);
 
         allSpringItems = filterByGender(allSpringItems);
 
         for (Item item : allSpringItems) {
-            if (item.getCategoryID() == 10) {
+            if (item.getCategoryID() == 10 && (item.getTemperatureIndex() == 3 || item.getTemperatureIndex() == 4)) {
                 upperBodyLighterList.add(item);
             } else if (item.getCategoryID() == 3 || item.getCategoryID() == 6 || item.getCategoryID() == 8) {
                 upperBodyHotterList.add(item);
@@ -105,6 +108,7 @@ public class SuggestOutfitController {
         upperBody.add(getRandomItemFromList(upperBodyHotterList));
         lowerBody = getRandomItemFromList(lowerBodyList);
         footwear = getRandomItemFromList(shoesList);
+        System.out.println("\nupper: "+upperBodyLighterList.get(0).getCategoryID()+"upper2: "+upperBodyHotterList.get(0).getCategoryID()+"lower: "+lowerBody.getCategoryID()+"footwear:"+footwear.getCategoryID()+"\n");
 
         return new Outfit(gender, upperBody, lowerBody, footwear);
 
@@ -173,9 +177,16 @@ public class SuggestOutfitController {
     }
 
     public Item getRandomItemFromList(List<Item> items) {
-        Random random = new Random();
-        int index = random.nextInt(items.size());
-        return items.get(index);
+        /*Random random = new Random();
+
+        System.out.println("\n size:"+items.size()+"\n");
+
+        int randomNum = random.nextInt((items.size()));
+
+        int index = randomNum;
+
+        System.out.println("\n random:"+randomNum+"\n");*/
+        return items.get(0);
     }
 
     private List<Item> filterByGender(List<Item> items) {

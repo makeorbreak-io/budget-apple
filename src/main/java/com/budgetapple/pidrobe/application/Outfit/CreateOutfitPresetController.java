@@ -12,11 +12,9 @@ import java.util.List;
  */
 public class CreateOutfitPresetController {
 
-    private final PiDrobe piDrobe;
     private final Outfit outfit;
 
     public CreateOutfitPresetController() {
-        this.piDrobe = PiDrobe.getInstance();
         this.outfit = new Outfit();
     }
 
@@ -39,6 +37,6 @@ public class CreateOutfitPresetController {
     public boolean save(String name) {
         Preset preset = new Preset(outfit, name);
 
-        return piDrobe.addPreset(preset);
+        return PiDrobe.getInstance().addPreset(preset);
     }
 }

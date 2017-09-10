@@ -2,6 +2,7 @@ package com.budgetapple.pidrobe.core.clothes;
 
 import java.io.Serializable;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -12,17 +13,17 @@ public class Outfit implements Serializable {
     /**
      * Links the order of clothing to the item. Example: 0 - T-Shirt, 1 - Shirt on top of T-Shirt, 2 - Coat
      */
-    private LinkedHashMap<Integer, Item> upperBody;
+    private LinkedHashMap<Integer, Item> upperBody = new LinkedHashMap<>();
 
     /**
      * Lower body item. Example: pants, shorts, skirts, etc...
      */
-    private Item lowerBody;
+    private Item lowerBody = new Item();
 
     /**
      * Shoes, boots, etc...
      */
-    private Item footwear;
+    private Item footwear = new Item();
 
     /**
      * Rings, glasses, etc...
@@ -73,8 +74,13 @@ public class Outfit implements Serializable {
         this.footwear = footwearItem;
     }
 
-    public LinkedHashMap<Integer, Item> getUpperBody() {
-        return upperBody;
+    public List <Item> getUpperBody() {
+        List<Item> items = new LinkedList<>();
+
+        for (Item item : upperBody.values()) {
+            items.add(item);
+        }
+        return items;
     }
 
     public Item getLowerBody() {

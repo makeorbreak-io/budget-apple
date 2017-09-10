@@ -38,7 +38,8 @@ public class DefaultScreenController {
      * Method that retrieves the current temperature
      */
     private void temperature(){
-      currentTemperature = piDrobe.getForecast().getCurrent().getTemperature();
+      //currentTemperature = piDrobe.getForecast().getCurrent().getTemperature();
+        currentTemperature = new Temperature(22.0, 21.0, 23.0);
     }
     /**
      * Return the maximum temp
