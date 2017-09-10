@@ -73,10 +73,10 @@ public class DefaultScreenView extends DefaultScreenDesign implements View {
         //Template for the Weather Image loader Algorithm
         if (theController.weatherDesc().equalsIgnoreCase("clear sky")) {
             weatherImage.setSource(new FileResource(new File("../src/main/resources/" +
-                            "com/budgetapple/pidrobe/icons/clear.png")));
+                            "com/budgetapple/pidrobe/icons/weather/clear.png")));
         } else if (theController.weatherDesc().equalsIgnoreCase("light rain")) {
             weatherImage.setSource(new FileResource(new File("../src/main/resources/" +
-                            "com/budgetapple/pidrobe/icons/rain.png")));
+                            "com/budgetapple/pidrobe/icons/weather/rain.png")));
         }
     }
 
