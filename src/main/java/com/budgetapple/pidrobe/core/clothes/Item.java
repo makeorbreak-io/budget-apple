@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class Item implements Serializable {
     private static int counter = 0;
 
-    public static final int MAX_TEMP_INDEX = 5;
+    public static final int MAX_TEMP_INDEX = 4;
 
     public static final int MIN_TEMP_INDEX = 0;
 

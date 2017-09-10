@@ -9,9 +9,10 @@
   <vaadin-horizontal-layout size-full>
    <vaadin-vertical-layout size-full :middle :expand>
     <vaadin-horizontal-layout size-full :expand>
-     <vaadin-label plain-text _id="temperatureLabel" :center>
-       Temperature Placeholder 
+     <vaadin-label width="114px" height="66px" _id="currentTempLabel" :center>
+       22 ºC 
      </vaadin-label>
+     <vaadin-image width="105px" height="85px" _id="weatherImage" :center :expand></vaadin-image>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout size-full :expand>
      <vaadin-label size-full _id="suggestionLabel" :middle :right>
@@ -32,10 +33,17 @@
    </vaadin-vertical-layout>
    <vaadin-vertical-layout size-full margin="false" :expand>
     <vaadin-vertical-layout size-full _id="verticalLayoutOutfit" :expand>
-     <vaadin-horizontal-layout size-full _id="horizontalLayoutUpperBody">
-      <vaadin-vertical-layout size-full margin="false" _id="verticalLayoutUpper1" :expand></vaadin-vertical-layout>
-      <vaadin-vertical-layout size-full margin="false" _id="verticalLayoutUpper2" :expand></vaadin-vertical-layout>
+     <vaadin-horizontal-layout size-full _id="horizontalLayoutUpperBody" :expand>
+      <vaadin-vertical-layout size-full margin="false" _id="verticalLayoutUpper1" :expand>
+       <vaadin-image width="80%" height="50%" _id="upperBodyImage0" :bottom :center></vaadin-image>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout size-full margin="false" _id="verticalLayoutUpper2" :expand>
+       <vaadin-image width="80%" height="50%" _id="upperBodyImage1" :middle :center></vaadin-image>
+      </vaadin-vertical-layout>
+      <vaadin-image width="80%" height="50%" _id="upperBodyImage2" :bottom :center :expand></vaadin-image>
      </vaadin-horizontal-layout>
+     <vaadin-image width="40%" height="70%" _id="lowerBodyImage" :middle :center :expand></vaadin-image>
+     <vaadin-image width="40%" height="70%" _id="footwearImage" :middle :center :expand></vaadin-image>
     </vaadin-vertical-layout>
    </vaadin-vertical-layout>
   </vaadin-horizontal-layout>

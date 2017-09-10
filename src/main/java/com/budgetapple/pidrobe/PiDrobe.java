@@ -82,7 +82,7 @@ public class PiDrobe implements Serializable {
         List<Item> items = new LinkedList<>();
 
         for (Item item : allItems) {
-            if (item.getTemperatureIndex() >= min && item.getTemperatureIndex() <= max) {
+            if (item.getTemperatureIndex() >= min && item.getTemperatureIndex() <= max && item.isAvailable()) {
                 items.add(item);
             }
         }
