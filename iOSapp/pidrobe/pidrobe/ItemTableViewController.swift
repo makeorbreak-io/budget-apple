@@ -15,17 +15,28 @@ class ItemTableViewController: UITableViewController {
     @IBOutlet weak var addButton: UIBarButtonItem!
     var items = [[Item]]()
     var categories = [Category]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         generateCategories()
+        loadItems()
+        
+        self.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl?.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
 
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func refresh(sender:AnyObject){
+        loadItems()
+        self.refreshControl?.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
@@ -120,6 +131,7 @@ class ItemTableViewController: UITableViewController {
         case "AddItem":
             os_log("Adding a new item.", log: OSLog.default, type: .debug)
             
+            
         case "ShowDetail":
             guard let itemDetailViewController = segue.destination as? ItemViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
@@ -135,8 +147,7 @@ class ItemTableViewController: UITableViewController {
             
             let selectedItem = items[indexPath.section][indexPath.row]
             itemDetailViewController.item = selectedItem
-            itemDetailViewController.categories = self.categories
-            
+
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
@@ -159,6 +170,23 @@ class ItemTableViewController: UITableViewController {
         let vest = Category(id: 11, category: "Vest")
 
         categories = [boots, coat, flipflop, jacket, shoes, shorts, sleeves, suit, sweater, trouser, tshirt, vest]
+        for _ in 1...categories.count{
+            self.items.append([Item]())
+        }
+    }
+    
+    private func loadItems(){
+        let itemService = ItemService()
+        itemService.getAllItems(){
+            (items) in
+            // OFF THE MAIN QUEUE
+            DispatchQueue.main.async {
+                for item in items! {
+                    self.items[item.categoryId!].append(item)
+                }
+                self.tableView.reloadData()
+            }
+        }
     }
 
 }

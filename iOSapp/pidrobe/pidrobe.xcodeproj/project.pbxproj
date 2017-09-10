@@ -19,6 +19,12 @@
 		A0B155661F647492004CBED6 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155651F647492004CBED6 /* ItemTableViewCell.swift */; };
 		A0B155681F6474A2004CBED6 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155671F6474A2004CBED6 /* ItemTableViewController.swift */; };
 		A0B1556A1F6474B4004CBED6 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155691F6474B4004CBED6 /* ItemViewController.swift */; };
+		A0B155841F64BC9C004CBED6 /* ChromaAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B1557D1F64BC9C004CBED6 /* ChromaAddButton.swift */; };
+		A0B155851F64BC9C004CBED6 /* ChromaColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B1557F1F64BC9C004CBED6 /* ChromaColorPicker.swift */; };
+		A0B155861F64BC9C004CBED6 /* ChromaHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155801F64BC9C004CBED6 /* ChromaHandle.swift */; };
+		A0B155871F64BC9C004CBED6 /* ChromaShadeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155811F64BC9C004CBED6 /* ChromaShadeSlider.swift */; };
+		A0B155881F64BC9C004CBED6 /* ColorModeToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155821F64BC9C004CBED6 /* ColorModeToggleButton.swift */; };
+		A0B155891F64BC9C004CBED6 /* UIColor+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B155831F64BC9C004CBED6 /* UIColor+Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +42,13 @@
 		A0B155651F647492004CBED6 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		A0B155671F6474A2004CBED6 /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		A0B155691F6474B4004CBED6 /* ItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		A0B1557D1F64BC9C004CBED6 /* ChromaAddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChromaAddButton.swift; sourceTree = "<group>"; };
+		A0B1557E1F64BC9C004CBED6 /* ChromaColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChromaColorPicker.h; sourceTree = "<group>"; };
+		A0B1557F1F64BC9C004CBED6 /* ChromaColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChromaColorPicker.swift; sourceTree = "<group>"; };
+		A0B155801F64BC9C004CBED6 /* ChromaHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChromaHandle.swift; sourceTree = "<group>"; };
+		A0B155811F64BC9C004CBED6 /* ChromaShadeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChromaShadeSlider.swift; sourceTree = "<group>"; };
+		A0B155821F64BC9C004CBED6 /* ColorModeToggleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorModeToggleButton.swift; sourceTree = "<group>"; };
+		A0B155831F64BC9C004CBED6 /* UIColor+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Utilities.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +81,7 @@
 		A0B155441F645E7C004CBED6 /* PiDrobe */ = {
 			isa = PBXGroup;
 			children = (
+				A0B1556D1F64BC17004CBED6 /* ChromaColorPicker */,
 				A0B155641F647470004CBED6 /* Controllers */,
 				A0B1555B1F645EC4004CBED6 /* Model */,
 				A0B1555A1F645EB4004CBED6 /* Processors */,
@@ -107,6 +121,20 @@
 				A0B155671F6474A2004CBED6 /* ItemTableViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A0B1556D1F64BC17004CBED6 /* ChromaColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				A0B1557D1F64BC9C004CBED6 /* ChromaAddButton.swift */,
+				A0B1557E1F64BC9C004CBED6 /* ChromaColorPicker.h */,
+				A0B1557F1F64BC9C004CBED6 /* ChromaColorPicker.swift */,
+				A0B155801F64BC9C004CBED6 /* ChromaHandle.swift */,
+				A0B155811F64BC9C004CBED6 /* ChromaShadeSlider.swift */,
+				A0B155821F64BC9C004CBED6 /* ColorModeToggleButton.swift */,
+				A0B155831F64BC9C004CBED6 /* UIColor+Utilities.swift */,
+			);
+			name = ChromaColorPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,12 +213,18 @@
 				A0B1555D1F645EE1004CBED6 /* NetworkProcessor.swift in Sources */,
 				A0B155681F6474A2004CBED6 /* ItemTableViewController.swift in Sources */,
 				A0B1555F1F645FA2004CBED6 /* Category.swift in Sources */,
+				A0B155841F64BC9C004CBED6 /* ChromaAddButton.swift in Sources */,
+				A0B155881F64BC9C004CBED6 /* ColorModeToggleButton.swift in Sources */,
+				A0B155891F64BC9C004CBED6 /* UIColor+Utilities.swift in Sources */,
 				A0B155461F645E7C004CBED6 /* AppDelegate.swift in Sources */,
 				A0B155661F647492004CBED6 /* ItemTableViewCell.swift in Sources */,
+				A0B155851F64BC9C004CBED6 /* ChromaColorPicker.swift in Sources */,
+				A0B155871F64BC9C004CBED6 /* ChromaShadeSlider.swift in Sources */,
 				A0B155611F645FA9004CBED6 /* Item.swift in Sources */,
 				A0B1556A1F6474B4004CBED6 /* ItemViewController.swift in Sources */,
 				A0B1554E1F645E7C004CBED6 /* PiDrobe.xcdatamodeld in Sources */,
 				A0B155631F6464F7004CBED6 /* ItemService.swift in Sources */,
+				A0B155861F64BC9C004CBED6 /* ChromaHandle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

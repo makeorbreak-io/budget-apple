@@ -80,7 +80,7 @@
                     <navigationItem key="navigationItem" title="PiDrobe" id="cng-sH-6aB">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wq8-5Q-WwZ">
                             <connections>
-                                <segue destination="c4J-eV-8MR" kind="presentation" identifier="addItem" id="7sD-j1-zmQ"/>
+                                <segue destination="c4J-eV-8MR" kind="presentation" identifier="AddItem" id="7sD-j1-zmQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -198,23 +198,39 @@
                                     <constraint firstItem="B4O-OK-wbk" firstAttribute="leading" secondItem="lQC-e6-9Ut" secondAttribute="leading" constant="40" id="m6U-3x-Ncb"/>
                                 </constraints>
                             </stackView>
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vD-23-fgP">
+                                <rect key="frame" x="0.0" y="367" width="375" height="300"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Twi-yv-OgJ"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lQC-e6-9Ut" firstAttribute="top" secondItem="1yw-aN-Jdd" secondAttribute="bottom" constant="30" id="7hn-Dx-XYG"/>
+                            <constraint firstAttribute="trailing" secondItem="2vD-23-fgP" secondAttribute="trailing" id="As2-Gr-fwY"/>
+                            <constraint firstItem="2vD-23-fgP" firstAttribute="leading" secondItem="mua-vb-vsr" secondAttribute="leading" id="EA7-rA-75k"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lQC-e6-9Ut" secondAttribute="trailing" id="O1P-bo-FU3"/>
+                            <constraint firstItem="Rz5-iI-6Sk" firstAttribute="top" secondItem="2vD-23-fgP" secondAttribute="bottom" id="brm-zq-pq4"/>
                             <constraint firstItem="lQC-e6-9Ut" firstAttribute="leading" secondItem="mua-vb-vsr" secondAttribute="leadingMargin" id="iL7-v6-XwJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Item" id="J2Z-6M-dj4">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5cP-ya-vZr"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5cP-ya-vZr">
+                            <connections>
+                                <action selector="cancelClick:" destination="jOR-h0-49e" id="sfz-Dv-owR"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Y8L-9P-ttn"/>
                     </navigationItem>
                     <connections>
                         <outlet property="categoryField" destination="RUS-y8-jwa" id="dbm-F5-ZCA"/>
+                        <outlet property="categoryPicker" destination="2vD-23-fgP" id="Rf4-gH-dF8"/>
                         <outlet property="colorField" destination="6tv-v5-MCR" id="xcE-yN-4h8"/>
                         <outlet property="heatSlider" destination="vPG-1I-fIu" id="D6p-50-hqj"/>
                         <outlet property="photo" destination="rnm-1g-O06" id="zXu-cj-3Zs"/>
+                        <outlet property="saveButton" destination="Y8L-9P-ttn" id="Mub-1m-vX3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UpY-zc-oYU" userLabel="First Responder" sceneMemberID="firstResponder"/>
