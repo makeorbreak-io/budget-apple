@@ -40,7 +40,7 @@ public class NewsService extends Thread {
     public void run() {
         try {
             //TODO Choose source
-            newsFeed = getNews("ign");
+            newsFeed = getNews("techcrunch");
 
             Thread.sleep(TIMEOUT);
         } catch (InterruptedException e) {

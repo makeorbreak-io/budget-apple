@@ -65,6 +65,10 @@ public class DefaultScreenController {
 
     }
 
+    public String weatherDesc(){
+        return piDrobe.getForecast().getCurrent().getWeatherDescription();
+    }
+
     /**
      *
      * @return

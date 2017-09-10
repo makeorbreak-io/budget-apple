@@ -1,6 +1,7 @@
 package com.budgetapple.pidrobe.webapp;
 
 import com.budgetapple.pidrobe.application.weather.DefaultScreenController;
+import com.budgetapple.pidrobe.core.newsfeed.News;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.server.FileResource;
@@ -38,6 +39,7 @@ public class DefaultScreenView extends DefaultScreenDesign implements View {
         labelsLogic();
         weatherImageLoader();
         buttonAction();
+        newsHandler();
     }
 
     /**
@@ -46,20 +48,20 @@ public class DefaultScreenView extends DefaultScreenDesign implements View {
     private void labelsLogic() {
 
         //Displays the current date ("yyy/MM/dd")
-        dateLabel.setValue("<b><font color=\"white\">"+theController.localDate()+"</font></b>");
+        dateLabel.setValue("<b><font color=\"white\">" + theController.localDate() + "</font></b>");
 
         //Displays the maximum temp expected for the day
-        maxTempLabel.setValue("<b><font color=\"white\"> Max (ºC) " + theController.maxTemp()+"</font></b>");
+        maxTempLabel.setValue("<b><font color=\"white\"> Max (ºC) " + theController.maxTemp() + "</font></b>");
 
         //Displays the minimum temp expected for the day
-        minTempLabel.setValue("<b><font color=\"white\"> Min (ºC) " + theController.minTemp()+"</font></b>");
+        minTempLabel.setValue("<b><font color=\"white\"> Min (ºC) " + theController.minTemp() + "</font></b>");
 
         //Displays the current temp
-        currentTempLabel.setValue("<font size=\"7\" color=\"white\">"+theController.currentTemp()+"ºC</font>");
+        currentTempLabel.setValue("<font size=\"7\" color=\"white\">" + theController.currentTemp() + "ºC</font>");
 
         //Chance of Precipitation
         precipLabel.setValue("<b><font color=\"white\"> Chance of Precipitation (%) "
-                + theController.chanceOfPrecipitation()+"</font></b>");
+                + theController.chanceOfPrecipitation() + "</font></b>");
 
 
     }
@@ -67,40 +69,44 @@ public class DefaultScreenView extends DefaultScreenDesign implements View {
     /**
      *
      */
-    private void weatherImageLoader(){
+    private void weatherImageLoader() {
 
         //Template
-        weatherImageLayout.addComponent(new Image(null,
-                new FileResource(new File("/home/ricardo/BudgetApple (Porto Summer Code)/src/main/resources/" +
-                        "com/budgetapple/pidrobe/icons/clear.png"))));
+        if (theController.weatherDesc().equalsIgnoreCase("clear sky")) {
+            weatherImageLayout.addComponent(new Image(null,
+                    new FileResource(new File("../src/main/resources/" +
+                            "com/budgetapple/pidrobe/icons/clear.png"))));
+        } else if (theController.weatherDesc().equalsIgnoreCase("light rain")) {
+            weatherImageLayout.addComponent(new Image(null,
+                    new FileResource(new File("../src/main/resources/" +
+                            "com/budgetapple/pidrobe/icons/rain.png"))));
+        }
+    }
+
+
+    /**
+     *
+     */
+    private void newsHandler() {
+
+        newsLayout.setCaption("<b>" + theController.newsSource() + "</b>");
+        news1Title.setValue(theController.newsFeed().get(0).getTitle());
+        news2Title.setValue(theController.newsFeed().get(1).getTitle());
+        news3Title.setValue(theController.newsFeed().get(2).getTitle());
+
 
     }
 
     /**
      *
      */
-    private void newsHandler(){
-        newsLayout.setCaption(theController.newsSource());
-
-       /* for(News news : theController.newsFeed()){
-            news
-        }*/
-
-
-    }
-
-    /**
-     *
-     */
-    private void buttonAction(){
+    private void buttonAction() {
 
         myClosetButton.addClickListener(clickEvent -> {
             //FIXME java.lang.IllegalArgumentException: bound must be positive
-          // navigator.navigateTo(DisplayOutfitView.NAME);
+            // navigator.navigateTo(DisplayOutfitView.NAME);
         });
     }
-
-
 
 
 }
