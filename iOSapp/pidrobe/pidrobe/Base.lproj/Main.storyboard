@@ -205,15 +205,24 @@
                                     <constraint firstAttribute="height" constant="300" id="Twi-yv-OgJ"/>
                                 </constraints>
                             </pickerView>
+                            <view hidden="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="w0O-ty-Brp">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2vD-23-fgP" secondAttribute="trailing" id="0Qj-MO-0dq"/>
+                            <constraint firstItem="Rz5-iI-6Sk" firstAttribute="top" secondItem="w0O-ty-Brp" secondAttribute="bottom" id="4An-wd-JeQ"/>
                             <constraint firstItem="lQC-e6-9Ut" firstAttribute="top" secondItem="1yw-aN-Jdd" secondAttribute="bottom" constant="30" id="7hn-Dx-XYG"/>
-                            <constraint firstAttribute="trailing" secondItem="2vD-23-fgP" secondAttribute="trailing" id="As2-Gr-fwY"/>
                             <constraint firstItem="2vD-23-fgP" firstAttribute="leading" secondItem="mua-vb-vsr" secondAttribute="leading" id="EA7-rA-75k"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lQC-e6-9Ut" secondAttribute="trailing" id="O1P-bo-FU3"/>
+                            <constraint firstItem="Rz5-iI-6Sk" firstAttribute="top" secondItem="w0O-ty-Brp" secondAttribute="bottom" id="T8a-9F-iHC"/>
                             <constraint firstItem="Rz5-iI-6Sk" firstAttribute="top" secondItem="2vD-23-fgP" secondAttribute="bottom" id="brm-zq-pq4"/>
+                            <constraint firstAttribute="trailing" secondItem="w0O-ty-Brp" secondAttribute="trailing" id="dDj-PY-gkm"/>
+                            <constraint firstItem="w0O-ty-Brp" firstAttribute="top" secondItem="1yw-aN-Jdd" secondAttribute="bottom" id="fgD-Og-8Ec"/>
                             <constraint firstItem="lQC-e6-9Ut" firstAttribute="leading" secondItem="mua-vb-vsr" secondAttribute="leadingMargin" id="iL7-v6-XwJ"/>
+                            <constraint firstItem="w0O-ty-Brp" firstAttribute="leading" secondItem="mua-vb-vsr" secondAttribute="leading" id="ofC-IO-MAU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Item" id="J2Z-6M-dj4">
@@ -228,6 +237,7 @@
                         <outlet property="categoryField" destination="RUS-y8-jwa" id="dbm-F5-ZCA"/>
                         <outlet property="categoryPicker" destination="2vD-23-fgP" id="Rf4-gH-dF8"/>
                         <outlet property="colorField" destination="6tv-v5-MCR" id="xcE-yN-4h8"/>
+                        <outlet property="colorPickView" destination="w0O-ty-Brp" id="CSB-aQ-fVc"/>
                         <outlet property="heatSlider" destination="vPG-1I-fIu" id="D6p-50-hqj"/>
                         <outlet property="photo" destination="rnm-1g-O06" id="zXu-cj-3Zs"/>
                         <outlet property="saveButton" destination="Y8L-9P-ttn" id="Mub-1m-vX3"/>

@@ -18,6 +18,7 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var heatSlider: UISlider!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var categoryPicker: UIPickerView! = UIPickerView()
+    @IBOutlet weak var colorPickView: UIView!
     
     var item: Item?
     var categories = ["Coat", "Flip Flop", "Jacket", "Shoes","Shorts", "Sleeves", "Suit", "Sweater", "Trousers", "T-Shirt", "Vest"]
@@ -27,16 +28,18 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         categoryPicker.isHidden = true
         self.categoryField.delegate = self
+        self.colorField.delegate = self
         self.categoryPicker.delegate = self
         self.categoryPicker.dataSource = self
     
         let neatColorPicker = ChromaColorPicker(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+        neatColorPicker.center = CGPoint(x: colorPickView.bounds.size.width  / 2,y: colorPickView.bounds.size.height / 2);
         neatColorPicker.delegate = self //ChromaColorPickerDelegate
-        neatColorPicker.padding = 5
-        neatColorPicker.stroke = 3
-        neatColorPicker.hexLabel.textColor = UIColor.white
+        neatColorPicker.padding = 8
+        neatColorPicker.stroke = 8
+        neatColorPicker.hexLabel.textColor = UIColor.black
         
-        view.addSubview(neatColorPicker)
+        colorPickView.addSubview(neatColorPicker)
         
         // Do any additional setup after loading the view.
         
@@ -146,7 +149,7 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         
         if(textField == self.colorField){
-            
+            colorPickView.isHidden = false
         }
         return false
 
@@ -154,7 +157,8 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     // MARK: - Color Picker Delegate
     func colorPickerDidChooseColor(_ colorPicker: ChromaColorPicker, color: UIColor){
-        
+        self.colorField.text = color.hexCode
+        colorPickView.isHidden = true
     }
 
 
