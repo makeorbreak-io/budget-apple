@@ -40,6 +40,9 @@ public class PiDrobe implements Serializable {
         return instance;
     }
 
+    public static void main(String[] args) {
+        PiDrobe.getInstance();
+    }
     private void bootUp() {
         this.allItems = new LinkedList<>();
         this.allPresets = new LinkedList<>();
@@ -47,11 +50,15 @@ public class PiDrobe implements Serializable {
         new ServicesThreads();
 
         load();
+
+        for (Item item : getAllItems()) {
+            System.out.println(item);
+        }
     }
 
     private void load() {
         try {
-            PiDrobe piDrobe = (PiDrobe) IO.readBinFile("temp");
+            PiDrobe piDrobe = (PiDrobe) IO.readBinFile("PiDrobe");
 
             this.setAllCategories(piDrobe.allCategories);
             this.setAllItems(piDrobe.allItems);
@@ -82,7 +89,7 @@ public class PiDrobe implements Serializable {
         List<Item> items = new LinkedList<>();
 
         for (Item item : allItems) {
-            if (item.getTemperatureIndex() >= min && item.getTemperatureIndex() <= max) {
+            if (item.getTemperatureIndex() >= min && item.getTemperatureIndex() <= max && item.isAvailable()) {
                 items.add(item);
             }
         }
@@ -128,37 +135,5 @@ public class PiDrobe implements Serializable {
 
     public NewsFeed getNewsFeed() {
         return NewsService.getNews();
-    }
-
-    private void fillCategories() {
-        Category boots = new Category(0, "Boots");
-        Category coat = new Category(1, "Coat");
-        Category flipflop = new Category(2, "Flip Flop");
-        Category jacket = new Category(3, "Jacket");
-        Category shoes = new Category(4, "Shoes");
-        Category shorts = new Category(5, "Shorts");
-        Category sleeves = new Category(6, "Sleeves");
-        Category suit = new Category(7, "Suit");
-        Category sweater = new Category(8, "Sweater");
-        Category trouser = new Category(9, "Trousers");
-        Category tshirt = new Category(10, "T-Shirt");
-        Category vest = new Category(11, "Vest");
-
-        List<Category> categoriesList = new ArrayList();
-        categoriesList.add(boots);
-        categoriesList.add(coat);
-        categoriesList.add(flipflop);
-        categoriesList.add(jacket);
-        categoriesList.add(shoes);
-        categoriesList.add(shorts);
-        categoriesList.add(sleeves);
-        categoriesList.add(suit);
-        categoriesList.add(sweater);
-        categoriesList.add(trouser);
-        categoriesList.add(tshirt);
-        categoriesList.add(vest);
-
-        allCategories = categoriesList;
-
     }
 }

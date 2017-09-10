@@ -1,11 +1,10 @@
 package com.budgetapple.pidrobe.webapp;
 
 import com.budgetapple.pidrobe.application.weather.DefaultScreenController;
-import com.budgetapple.pidrobe.core.newsfeed.News;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
+import com.vaadin.server.ExternalResource;
 import com.vaadin.server.FileResource;
-import com.vaadin.ui.Image;
 import com.vaadin.ui.UI;
 
 import java.io.File;
@@ -67,32 +66,37 @@ public class DefaultScreenView extends DefaultScreenDesign implements View {
     }
 
     /**
-     *
+     * Weather Image Loader method
      */
     private void weatherImageLoader() {
 
-        //Template
+        //Template for the Weather Image loader Algorithm
         if (theController.weatherDesc().equalsIgnoreCase("clear sky")) {
-            weatherImageLayout.addComponent(new Image(null,
-                    new FileResource(new File("../src/main/resources/" +
-                            "com/budgetapple/pidrobe/icons/clear.png"))));
+            weatherImage.setSource(new FileResource(new File("../src/main/resources/" +
+                            "com/budgetapple/pidrobe/icons/weather/clear.png")));
         } else if (theController.weatherDesc().equalsIgnoreCase("light rain")) {
-            weatherImageLayout.addComponent(new Image(null,
-                    new FileResource(new File("../src/main/resources/" +
-                            "com/budgetapple/pidrobe/icons/rain.png"))));
+            weatherImage.setSource(new FileResource(new File("../src/main/resources/" +
+                            "com/budgetapple/pidrobe/icons/weather/rain.png")));
         }
     }
 
 
     /**
+     * Method responsible for handling the news headlines
      *
+     * (HARDCODED)
      */
     private void newsHandler() {
 
-        newsLayout.setCaption("<b>" + theController.newsSource() + "</b>");
+        newsLayout.setCaption("<b>" + theController.newsSource() + " Headlines </b>");
+
         news1Title.setValue(theController.newsFeed().get(0).getTitle());
         news2Title.setValue(theController.newsFeed().get(1).getTitle());
         news3Title.setValue(theController.newsFeed().get(2).getTitle());
+
+        news1Image.setSource(new ExternalResource(theController.newsFeed().get(0).getImageURL()));
+        news2Image.setSource(new ExternalResource(theController.newsFeed().get(1).getImageURL()));
+        news3Image.setSource(new ExternalResource(theController.newsFeed().get(2).getImageURL()));
 
 
     }

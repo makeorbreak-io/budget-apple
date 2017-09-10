@@ -15,6 +15,13 @@ import java.util.Random;
  */
 public class SuggestOutfitController {
 
+    Item lowerBody, footwear;
+    List<Item> upperBody = new LinkedList<>();
+    List<Item> upperBodyHotterList = new LinkedList<>();
+    List<Item> upperBodyLighterList = new LinkedList<>();
+    List<Item> lowerBodyList = new LinkedList<>();
+    List<Item> shoesList = new LinkedList<>();
+
     public Outfit generateSuggestedOutfit() {
         Outfit suggestedOutfit;
 
@@ -37,8 +44,6 @@ public class SuggestOutfitController {
     }
 
     private Outfit summerOutfit() {
-        Item lowerBody, footwear;
-        List<Item> upperBody = new LinkedList<>();
 
         //Gets items with the most temperature index
         List<Item> allSummerItems = PiDrobe.getInstance().getItemsWithTempIndex(Item.MAX_TEMP_INDEX, Item.MAX_TEMP_INDEX);
@@ -64,16 +69,92 @@ public class SuggestOutfitController {
         return new Outfit(upperBody, lowerBody, footwear);
     }
 
-    private Outfit springOutfit() {
-        return null;
+    private Outfit springOutfit() { //sugerir 2 peças para upper body
+
+        Weather weather = PiDrobe.getInstance().getForecast().getCurrent();
+        Temperature temperature = weather.getTemperature();
+
+        double currentTemp = temperature.getCurrent();
+
+        List<Item> allSpringItems = PiDrobe.getInstance().getItemsWithTempIndex(2, 3);
+
+        for (Item item : allSpringItems) {
+            if (item.getCategoryID() == 10) {
+                upperBodyLighterList.add(item);
+            } else if (item.getCategoryID() == 3 || item.getCategoryID() == 6 || item.getCategoryID() == 8) {
+                upperBodyHotterList.add(item);
+            } else if (item.getCategoryID() == 5 || item.getCategoryID() == 9) {
+                lowerBodyList.add(item);
+            } else if (item.getCategoryID() == 4) {
+                shoesList.add(item);
+            }
+        }
+
+        upperBody.add(getRandomItemFromList(upperBodyLighterList));
+        upperBody.add(getRandomItemFromList(upperBodyHotterList));
+        lowerBody = getRandomItemFromList(lowerBodyList);
+        footwear = getRandomItemFromList(shoesList);
+
+        return new Outfit(upperBody, lowerBody, footwear);
+
     }
 
     private Outfit fallOutfit() {
-        return null;
+        Weather weather = PiDrobe.getInstance().getForecast().getCurrent();
+        Temperature temperature = weather.getTemperature();
+
+        double currentTemp = temperature.getCurrent();
+
+        List<Item> allFallItems = PiDrobe.getInstance().getItemsWithTempIndex(1,2);
+
+        for (Item item : allFallItems) {
+            if (item.getCategoryID() == 8 && item.getCategoryID() == 10) {
+                upperBodyLighterList.add(item);
+            } else if (item.getCategoryID() == 3 || item.getCategoryID() == 6 ||item.getCategoryID() == 1) {
+                upperBodyHotterList.add(item);
+            } else if (item.getCategoryID() == 9) {
+                lowerBodyList.add(item);
+            } else if (item.getCategoryID() == 4 || item.getCategoryID() == 0) {
+                shoesList.add(item);
+            }
+        }
+
+        upperBody.add(getRandomItemFromList(upperBodyLighterList));
+        upperBody.add(getRandomItemFromList(upperBodyHotterList));
+        lowerBody = getRandomItemFromList(lowerBodyList);
+        footwear = getRandomItemFromList(shoesList);
+
+        return new Outfit(upperBody, lowerBody, footwear);
+
     }
 
     private Outfit winterOutfit() {
-        return null;
+        Weather weather = PiDrobe.getInstance().getForecast().getCurrent();
+        Temperature temperature = weather.getTemperature();
+
+        double currentTemp = temperature.getCurrent();
+
+        List<Item> allWinterItems = PiDrobe.getInstance().getItemsWithTempIndex(0,1);
+
+        for (Item item : allWinterItems) {
+            if (item.getCategoryID() == 8 || item.getCategoryID() == 6) {
+                upperBodyLighterList.add(item);
+            } else if (item.getCategoryID() == 3 || item.getCategoryID() == 6 ||item.getCategoryID() == 1) {
+                upperBodyHotterList.add(item);
+            } else if (item.getCategoryID() == 9) {
+                lowerBodyList.add(item);
+            } else if (item.getCategoryID() == 0) {
+                shoesList.add(item);
+            }
+        }
+
+        upperBody.add(getRandomItemFromList(upperBodyLighterList));
+        upperBody.add(getRandomItemFromList(upperBodyHotterList));
+        upperBody.add(getRandomItemFromList(upperBodyHotterList));
+        lowerBody = getRandomItemFromList(lowerBodyList);
+        footwear = getRandomItemFromList(shoesList);
+
+        return new Outfit(upperBody, lowerBody, footwear);
     }
 
     public Item getRandomItemFromList(List<Item> items) {

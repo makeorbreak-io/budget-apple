@@ -92,11 +92,26 @@ public class ForecastService extends Thread {
         weather.setDate(new Date((Long) jsonWeather.get("dt")));
 
         JSONObject main = (JSONObject) jsonWeather.get("main");
-        Temperature temperature = new Temperature(
-                (Double) main.get("temp"),
-                (Double) main.get("temp_min"),
-                (Double) main.get("temp_max")
-        );
+
+        Double temp,temp_min,temp_max;
+
+        if (main.get("temp") instanceof Long) {
+            temp = ((Long) main.get("temp")).doubleValue();
+        } else {
+            temp = (Double) main.get("temp");
+        }
+        if (main.get("temp_min") instanceof Long) {
+            temp_min = ((Long) main.get("temp_min")).doubleValue();
+        } else {
+            temp_min = (Double) main.get("temp_min");
+        }
+        if (main.get("temp_max") instanceof Long) {
+            temp_max = ((Long) main.get("temp_max")).doubleValue();
+        } else {
+            temp_max = (Double) main.get("temp_max");
+        }
+        Temperature temperature = new Temperature(temp,temp_min,temp_max);
+
         weather.setTemperature(temperature);
         weather.setPressure((Double) main.get("pressure"));
         if (main.get("sea_level") instanceof Long) {
@@ -124,11 +139,13 @@ public class ForecastService extends Thread {
             weather.setSnow((Double) rain.get("3h"));
         }
 
-       /* JSONObject wind = (JSONObject) jsonWeather.get("wind");
+        /*JSONObject wind = (JSONObject) jsonWeather.get("wind");
         if (wind != null) {
             weather.setWind(new Wind((Double)jsonWeather.get("speed"),(Double)jsonWeather.get("deg")));
         }*/
 
         return weather;
     }
+
+
 }
