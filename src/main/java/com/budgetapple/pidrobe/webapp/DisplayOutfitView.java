@@ -2,6 +2,7 @@ package com.budgetapple.pidrobe.webapp;
 
 import com.budgetapple.pidrobe.application.Outfit.SuggestOutfitController;
 import com.budgetapple.pidrobe.application.weather.DefaultScreenController;
+import com.budgetapple.pidrobe.core.clothes.Gender;
 import com.budgetapple.pidrobe.core.clothes.Item;
 import com.budgetapple.pidrobe.core.clothes.Outfit;
 import com.vaadin.navigator.Navigator;
@@ -19,18 +20,18 @@ import java.util.Map;
 
 public class DisplayOutfitView extends DisplayOutfitDesign implements View {
 
-    private SuggestOutfitController controller;
-    private Outfit outfit;
-    Navigator navigator;
     public static final String NAME = "outfit_menu";
+    Navigator navigator;
     Item lowerBody;
     Item footwear;
+    private SuggestOutfitController controller;
+    private Outfit outfit;
     private DefaultScreenController theController;
 
-    public DisplayOutfitView() throws IOException {
+    public DisplayOutfitView(Gender gender) throws IOException {
 
         navigator = UI.getCurrent().getNavigator();
-        controller = new SuggestOutfitController();
+        controller = new SuggestOutfitController(gender);
         theController = new DefaultScreenController();
         bootUpOutfit();
         bootUpWeatherInfo();

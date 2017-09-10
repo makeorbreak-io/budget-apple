@@ -1,6 +1,7 @@
 package com.budgetapple.pidrobe.webapp;
 
 import com.budgetapple.pidrobe.application.weather.DefaultScreenController;
+import com.budgetapple.pidrobe.core.clothes.Gender;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.server.ExternalResource;
@@ -8,6 +9,8 @@ import com.vaadin.server.FileResource;
 import com.vaadin.ui.UI;
 
 import java.io.File;
+import java.util.LinkedList;
+import java.util.List;
 
 
 /**
@@ -17,17 +20,19 @@ import java.io.File;
 public class DefaultScreenView extends DefaultScreenDesign implements View {
 
     /**
-     * Allows navigation between views
-     */
-    private Navigator navigator;
-    /**
      * View Navigator ID
      */
     public static final String NAME = "default_screen";
     /**
+     * Allows navigation between views
+     */
+    private Navigator navigator;
+    /**
      * Default Screen Controller
      */
     private DefaultScreenController theController;
+
+    private Gender gender;
 
     /**
      *
@@ -35,10 +40,35 @@ public class DefaultScreenView extends DefaultScreenDesign implements View {
     public DefaultScreenView() {
         navigator = UI.getCurrent().getNavigator();
         theController = new DefaultScreenController();
+        myClosetButton.setEnabled(false);
+
+        comboLogic();
         labelsLogic();
         weatherImageLoader();
         buttonAction();
         newsHandler();
+    }
+
+    private void comboLogic() {
+        List<String> genders = new LinkedList<>();
+        genders.add("Male");
+        genders.add("Female");
+
+        genderComboBox.setItems(genders);
+
+        genderComboBox.addValueChangeListener(event -> {
+            switch (event.getValue()){
+                case "Male":
+                    gender = Gender.MALE;
+                    break;
+
+                case "Female":
+                    gender = Gender.FEMALE;
+                    break;
+            }
+
+            myClosetButton.setEnabled(true);
+        });
     }
 
     /**
@@ -73,17 +103,17 @@ public class DefaultScreenView extends DefaultScreenDesign implements View {
         //Template for the Weather Image loader Algorithm
         if (theController.weatherDesc().equalsIgnoreCase("clear sky")) {
             weatherImage.setSource(new FileResource(new File("../src/main/resources/" +
-                            "com/budgetapple/pidrobe/icons/weather/clear.png")));
+                    "com/budgetapple/pidrobe/icons/weather/clear.png")));
         } else if (theController.weatherDesc().equalsIgnoreCase("light rain")) {
             weatherImage.setSource(new FileResource(new File("../src/main/resources/" +
-                            "com/budgetapple/pidrobe/icons/weather/rain.png")));
+                    "com/budgetapple/pidrobe/icons/weather/rain.png")));
         }
     }
 
 
     /**
      * Method responsible for handling the news headlines
-     *
+     * <p>
      * (HARDCODED)
      */
     private void newsHandler() {

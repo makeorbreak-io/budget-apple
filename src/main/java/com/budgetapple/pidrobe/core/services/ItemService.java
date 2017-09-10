@@ -32,6 +32,7 @@ public class ItemService {
             object.put("temperature_index", i.getTemperatureIndex());
             object.put("available", i.isAvailable());
             object.put("image", i.getImageBase64());
+            object.put("gender", i.getGender());
 
             array.add(object);
         }
