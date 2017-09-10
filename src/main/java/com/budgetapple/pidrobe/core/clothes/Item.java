@@ -39,8 +39,7 @@ public class Item implements Serializable {
                 @JsonProperty("image") String imageBase64,
                 @JsonProperty("color_hexa") String colorHexa,
                 @JsonProperty("temperature_index") int temperatureIndex,
-                @JsonProperty("available") boolean isAvailable,
-                @JsonProperty("gender") Gender gender) {
+                @JsonProperty("available") boolean isAvailable) {
         if(id == -1) {
             this.id = ++counter;
         }else{
@@ -51,7 +50,7 @@ public class Item implements Serializable {
         this.colorHexa = colorHexa;
         this.temperatureIndex = temperatureIndex;
         this.isAvailable = isAvailable;
-        this.gender = gender;
+        this.gender = Gender.UNISEX;
     }
 
     public int getCategoryID() {
