@@ -45,7 +45,7 @@ public class DefaultScreenController {
      * @return maximum temp
      */
     public String maxTemp(){
-        return String.valueOf(round(toCelcius(currentTemperature.getMaximum()),1));
+        return String.valueOf(round(toCelsius(currentTemperature.getMaximum()),1));
     }
 
     /**
@@ -53,7 +53,7 @@ public class DefaultScreenController {
      * @return minimum temp
      */
     public String minTemp(){
-        return String.valueOf(round(toCelcius(currentTemperature.getMinimum()),1));
+        return String.valueOf(round(toCelsius(currentTemperature.getMinimum()),1));
     }
 
     /**
@@ -61,7 +61,7 @@ public class DefaultScreenController {
      * @return current temp
      */
     public String currentTemp(){
-        return String.valueOf(round(toCelcius(currentTemperature.getCurrent()),0));
+        return String.valueOf(round(toCelsius(currentTemperature.getCurrent()),0));
 
     }
 
@@ -94,14 +94,20 @@ public class DefaultScreenController {
     }
 
     /**
-     *
+     * Converts value from kelvin to celsius
      * @param value
      * @return
      */
-    private double toCelcius(Double value) {
+    private double toCelsius(Double value) {
         return value-272.15;
     }
 
+    /**
+     * Method that rounds a number
+     * @param value
+     * @param places
+     * @return
+     */
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
