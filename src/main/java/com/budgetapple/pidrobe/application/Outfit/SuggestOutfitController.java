@@ -1,6 +1,7 @@
 package com.budgetapple.pidrobe.application.Outfit;
 
 import com.budgetapple.pidrobe.PiDrobe;
+import com.budgetapple.pidrobe.core.clothes.Gender;
 import com.budgetapple.pidrobe.core.clothes.Item;
 import com.budgetapple.pidrobe.core.clothes.Outfit;
 import com.budgetapple.pidrobe.core.weather.Temperature;
@@ -21,6 +22,11 @@ public class SuggestOutfitController {
     List<Item> upperBodyLighterList = new LinkedList<>();
     List<Item> lowerBodyList = new LinkedList<>();
     List<Item> shoesList = new LinkedList<>();
+    private Gender gender;
+
+    public SuggestOutfitController(Gender gender) {
+        this.gender = gender;
+    }
 
     public Outfit generateSuggestedOutfit() {
         Outfit suggestedOutfit;
@@ -48,6 +54,9 @@ public class SuggestOutfitController {
         //Gets items with the most temperature index
         List<Item> allSummerItems = PiDrobe.getInstance().getItemsWithTempIndex(Item.MAX_TEMP_INDEX, Item.MAX_TEMP_INDEX);
 
+        //Filters by gender
+        allSummerItems = filterByGender(allSummerItems);
+
         List<Item> tShirts = new LinkedList<>();
         List<Item> shorts = new LinkedList<>();
         List<Item> shoes = new LinkedList<>();
@@ -66,7 +75,7 @@ public class SuggestOutfitController {
         lowerBody = getRandomItemFromList(shorts);
         footwear = getRandomItemFromList(shoes);
 
-        return new Outfit(upperBody, lowerBody, footwear);
+        return new Outfit(gender, upperBody, lowerBody, footwear);
     }
 
     private Outfit springOutfit() { //sugerir 2 peças para upper body
@@ -77,6 +86,8 @@ public class SuggestOutfitController {
         double currentTemp = temperature.getCurrent();
 
         List<Item> allSpringItems = PiDrobe.getInstance().getItemsWithTempIndex(2, 3);
+
+        allSpringItems = filterByGender(allSpringItems);
 
         for (Item item : allSpringItems) {
             if (item.getCategoryID() == 10) {
@@ -95,7 +106,7 @@ public class SuggestOutfitController {
         lowerBody = getRandomItemFromList(lowerBodyList);
         footwear = getRandomItemFromList(shoesList);
 
-        return new Outfit(upperBody, lowerBody, footwear);
+        return new Outfit(gender, upperBody, lowerBody, footwear);
 
     }
 
@@ -105,12 +116,14 @@ public class SuggestOutfitController {
 
         double currentTemp = temperature.getCurrent();
 
-        List<Item> allFallItems = PiDrobe.getInstance().getItemsWithTempIndex(1,2);
+        List<Item> allFallItems = PiDrobe.getInstance().getItemsWithTempIndex(1, 2);
+
+        allFallItems = filterByGender(allFallItems);
 
         for (Item item : allFallItems) {
             if (item.getCategoryID() == 8 && item.getCategoryID() == 10) {
                 upperBodyLighterList.add(item);
-            } else if (item.getCategoryID() == 3 || item.getCategoryID() == 6 ||item.getCategoryID() == 1) {
+            } else if (item.getCategoryID() == 3 || item.getCategoryID() == 6 || item.getCategoryID() == 1) {
                 upperBodyHotterList.add(item);
             } else if (item.getCategoryID() == 9) {
                 lowerBodyList.add(item);
@@ -124,7 +137,7 @@ public class SuggestOutfitController {
         lowerBody = getRandomItemFromList(lowerBodyList);
         footwear = getRandomItemFromList(shoesList);
 
-        return new Outfit(upperBody, lowerBody, footwear);
+        return new Outfit(gender, upperBody, lowerBody, footwear);
 
     }
 
@@ -134,12 +147,14 @@ public class SuggestOutfitController {
 
         double currentTemp = temperature.getCurrent();
 
-        List<Item> allWinterItems = PiDrobe.getInstance().getItemsWithTempIndex(0,1);
+        List<Item> allWinterItems = PiDrobe.getInstance().getItemsWithTempIndex(0, 1);
+
+        allWinterItems = filterByGender(allWinterItems);
 
         for (Item item : allWinterItems) {
             if (item.getCategoryID() == 8 || item.getCategoryID() == 6) {
                 upperBodyLighterList.add(item);
-            } else if (item.getCategoryID() == 3 || item.getCategoryID() == 6 ||item.getCategoryID() == 1) {
+            } else if (item.getCategoryID() == 3 || item.getCategoryID() == 6 || item.getCategoryID() == 1) {
                 upperBodyHotterList.add(item);
             } else if (item.getCategoryID() == 9) {
                 lowerBodyList.add(item);
@@ -154,12 +169,24 @@ public class SuggestOutfitController {
         lowerBody = getRandomItemFromList(lowerBodyList);
         footwear = getRandomItemFromList(shoesList);
 
-        return new Outfit(upperBody, lowerBody, footwear);
+        return new Outfit(gender, upperBody, lowerBody, footwear);
     }
 
     public Item getRandomItemFromList(List<Item> items) {
         Random random = new Random();
         int index = random.nextInt(items.size());
         return items.get(index);
+    }
+
+    private List<Item> filterByGender(List<Item> items) {
+        List<Item> itemList = new LinkedList<>();
+
+        for (Item item : items) {
+            if (item.getGender().equals(gender) || item.getGender().equals(Gender.UNISEX)) {
+                itemList.add(item);
+            }
+        }
+
+        return itemList;
     }
 }

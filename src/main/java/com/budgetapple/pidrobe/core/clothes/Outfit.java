@@ -29,11 +29,14 @@ public class Outfit implements Serializable {
      */
     private List<Item> accessories;
 
+    private Gender gender;
+
     public Outfit() {
 
     }
 
-    public Outfit(List<Item> upperBodyItems, Item lowerBodyItem, Item footwearItem) {
+    public Outfit(Gender gender, List<Item> upperBodyItems, Item lowerBodyItem, Item footwearItem) {
+        this.gender = gender;
         setUpperBodyItems(upperBodyItems);
         setLowerBodyItem(lowerBodyItem);
         setFootwearItem(footwearItem);

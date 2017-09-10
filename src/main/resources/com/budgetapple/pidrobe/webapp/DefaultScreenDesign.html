@@ -52,9 +52,16 @@
          NEWS3 
        </vaadin-label>
       </vaadin-vertical-layout>
-      <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" style-name="borderless borderless-colored huge" plain-text _id="myClosetButton">
-        MyCloset 
-      </vaadin-button>
+      <vaadin-vertical-layout size-auto>
+       <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" style-name="borderless borderless-colored huge" plain-text _id="myClosetButton">
+         MyCloset 
+       </vaadin-button>
+       <vaadin-combo-box caption="Select your gender" data-item-type="java.lang.String" _id="genderComboBox">
+        <option item="Option1">Option 1</option>
+        <option item="Option2">Option 2</option>
+        <option item="Option3">Option 3</option>
+       </vaadin-combo-box>
+      </vaadin-vertical-layout>
      </vaadin-horizontal-layout>
     </vaadin-vertical-layout>
    </vaadin-horizontal-layout>
