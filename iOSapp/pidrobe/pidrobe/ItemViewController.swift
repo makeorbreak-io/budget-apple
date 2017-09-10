@@ -33,7 +33,7 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.categoryPicker.dataSource = self
     
         let neatColorPicker = ChromaColorPicker(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
-        neatColorPicker.center = CGPoint(x: colorPickView.bounds.size.width  / 2,y: colorPickView.bounds.size.height / 2);
+        neatColorPicker.center = CGPoint(x: colorPickView.frame.size.width  / 2,y: colorPickView.frame.size.height / 2);
         neatColorPicker.delegate = self //ChromaColorPickerDelegate
         neatColorPicker.padding = 8
         neatColorPicker.stroke = 8
@@ -53,6 +53,9 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             categoryField.text = categories[item.categoryId!]
             heatSlider.value = Float(item.temperatureIndex!)
         }
+        
+        updateSaveButtonState()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,6 +75,23 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Make sure ViewController is notified when the user picks an image.
         imagePickerController.delegate = self
         present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        // The info dictionary may contain multiple representations of the image. You want to use the original.
+        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        // Set photoImageView to display the selected image.
+        photo.image = selectedImage
+        
+        updateSaveButtonState()
+
+        
+        // Dismiss the picker.
+        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func cancelClick(_ sender: UIBarButtonItem) {
@@ -141,6 +161,8 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     {
         self.categoryField.text = self.categories[row]
         categoryPicker.isHidden = true
+        updateSaveButtonState()
+
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -159,7 +181,15 @@ class ItemViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func colorPickerDidChooseColor(_ colorPicker: ChromaColorPicker, color: UIColor){
         self.colorField.text = color.hexCode
         colorPickView.isHidden = true
+        updateSaveButtonState()
     }
 
-
+    //MARK: Private Methods
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let color = colorField.text ?? ""
+        let category = categoryField.text ?? ""
+        let image = photo.image
+        saveButton.isEnabled = !color.isEmpty && !category.isEmpty && image != #imageLiteral(resourceName: "defaultPhoto")
+    }
 }
