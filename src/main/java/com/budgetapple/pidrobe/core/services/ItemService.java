@@ -40,13 +40,7 @@ public class ItemService {
     }
 
     public boolean addNewItem(Item item) {
-        if (!PiDrobe.getInstance().getAllItems().contains(item)) {
-
-            PiDrobe.getInstance().addItem(item);
-
-            return true;
-        } else {
-            return false;
-        }
+        PiDrobe.getInstance().addItem(item);
+        return true;
     }
 }
