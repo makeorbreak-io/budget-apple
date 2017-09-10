@@ -78,6 +78,18 @@ public class PiDrobe implements Serializable {
         this.allItems = allItems;
     }
 
+    public List<Item> getItemsWithTempIndex(int min, int max) {
+        List<Item> items = new LinkedList<>();
+
+        for (Item item : allItems) {
+            if (item.getTemperatureIndex() >= min && item.getTemperatureIndex() <= max) {
+                items.add(item);
+            }
+        }
+
+        return items;
+    }
+
     public boolean addCategory(Category category) {
         return this.allCategories.add(category);
     }
