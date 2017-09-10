@@ -92,7 +92,7 @@ public class Item implements Serializable {
 
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o) {im
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
