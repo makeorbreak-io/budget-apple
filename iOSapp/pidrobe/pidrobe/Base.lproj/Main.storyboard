@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="94i-mT-K62" customClass="ItemTableViewCell" customModule="PiDrobe" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" id="94i-mT-K62" customClass="ItemTableViewCell" customModule="PiDrobe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="94i-mT-K62" id="V9f-ni-dxA">
@@ -231,7 +231,11 @@
                                 <action selector="cancelClick:" destination="jOR-h0-49e" id="sfz-Dv-owR"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Y8L-9P-ttn"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Y8L-9P-ttn">
+                            <connections>
+                                <segue destination="X7F-eE-erB" kind="unwind" unwindAction="unwindToMealListWithSender:" id="h21-Wi-Elo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="categoryField" destination="RUS-y8-jwa" id="dbm-F5-ZCA"/>
@@ -244,6 +248,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UpY-zc-oYU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="X7F-eE-erB" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="OFN-oF-V3k">
                     <connections>
                         <action selector="editPhoto:" destination="jOR-h0-49e" id="GW0-fE-759"/>
@@ -295,6 +300,6 @@
         <image name="hot_icon" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BnA-Rq-fSR"/>
+        <segue reference="iaP-qr-CEA"/>
     </inferredMetricsTieBreakers>
 </document>

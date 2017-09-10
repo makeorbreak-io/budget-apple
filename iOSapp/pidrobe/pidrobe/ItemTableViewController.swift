@@ -16,6 +16,30 @@ class ItemTableViewController: UITableViewController {
     var items = [[Item]]()
     var categories = [Category]()
 
+    //MARK: Actions
+    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? ItemViewController, let item = sourceViewController.item {
+            
+            if let selectedIndexPath = tableView.indexPathForSelectedRow{
+                //Updates an existing item
+                items[selectedIndexPath.section][selectedIndexPath.row] = item
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                
+            }else{
+                
+                // Add a new item.
+                let newIndexPath = IndexPath(row: items[item.categoryId!].count, section: item.categoryId!)
+                
+                items[item.categoryId!].append(item)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+            
+            // Save the items.
+            let service = ItemService()
+            service.postItem(item: item)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

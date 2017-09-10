@@ -47,4 +47,8 @@ class Item: NSObject{
         self.imageBase64 = dictionary[Keys.imageBase64] as? String
         self.isAvailable = dictionary[Keys.isAvailable] as? Bool
     }
+    
+    func toJson() -> String{
+        return "{\"id\": \(id!), \"category\": \(categoryId!), \"color_hexa\": \(colorHex!), \"temperature_index\": \(temperatureIndex!),\"image\": \(imageBase64!),\"available\": \(isAvailable!)}"
+    }
 }

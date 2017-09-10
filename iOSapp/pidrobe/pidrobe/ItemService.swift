@@ -29,4 +29,11 @@ class ItemService
             completion(allItems)
         })
     }
+    
+    func postItem(item: Item){
+        let url = URL(string: "\(itemBaseUrl!)/add")
+        let networkProcessor = NetworkProcessor(url: url!)
+        networkProcessor.postJSON(body: item.toJson())
+        
+    }
 }
