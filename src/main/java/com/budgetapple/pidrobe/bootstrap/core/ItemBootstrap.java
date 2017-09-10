@@ -66,7 +66,7 @@ public class ItemBootstrap {
     private String imageBase64(String file) {
         try {
 
-            String image = "C:\\Users\\Miguel Cardoso\\Desktop\\Git\\piDrobe\\src\\main\\resources\\com\\budgetapple\\pidrobe\\icons\\items\\" + file + ".jpg";
+            String image = "files/items/" + file + ".jpg";
             byte[] data = Files.readAllBytes(new File(image).toPath());
 
             return Base64.getEncoder().encodeToString(data);

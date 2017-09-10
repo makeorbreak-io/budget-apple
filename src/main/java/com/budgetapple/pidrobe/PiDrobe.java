@@ -50,10 +50,6 @@ public class PiDrobe implements Serializable {
         new ServicesThreads();
 
         load();
-
-        for (Item item : getAllItems()) {
-            System.out.println(item);
-        }
     }
 
     private void load() {
