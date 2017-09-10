@@ -42,34 +42,10 @@ public class DefaultScreenView extends DefaultScreenDesign implements View {
         theController = new DefaultScreenController();
         myClosetButton.setEnabled(false);
 
-        comboLogic();
         labelsLogic();
         weatherImageLoader();
         buttonAction();
         newsHandler();
-    }
-
-    private void comboLogic() {
-        List<String> genders = new LinkedList<>();
-        genders.add("Male");
-        genders.add("Female");
-
-        genderComboBox.setEmptySelectionAllowed(false);
-        genderComboBox.setItems(genders);
-
-        genderComboBox.addValueChangeListener(event -> {
-            switch (event.getValue()){
-                case "Male":
-                    gender = Gender.MALE;
-                    break;
-
-                case "Female":
-                    gender = Gender.FEMALE;
-                    break;
-            }
-
-            myClosetButton.setEnabled(true);
-        });
     }
 
     /**
@@ -137,7 +113,7 @@ public class DefaultScreenView extends DefaultScreenDesign implements View {
 
         myClosetButton.addClickListener(clickEvent -> {
             //FIXME java.lang.IllegalArgumentException: bound must be positive
-            // navigator.navigateTo(DisplayOutfitView.NAME);
+            navigator.navigateTo(DisplayOutfitView.NAME);
         });
     }
 
