@@ -26,9 +26,9 @@ This project was entirely built under 48 hours for the Hackthon [**Make or Break
 
 ## Authors
 
-* **Ricardo Silveira** -  *Backend and Frontend Webapp work* - [ndest10](https://github.com/ndest10)
-* **Miguel Cardoso** -  *Backend and Frontend Webapp work* - [ndest10](https://github.com/ndest10)
-* **Diogo Medeiros** - *Backend and Frontend Webapp work* - [ndest10](https://github.com/ndest10)
+* **Ricardo Silveira** -  *Backend and Frontend Webapp work* - [RicardoSilveira23](https://github.com/https://github.com/RicardoSilveira23)
+* **Miguel Cardoso** -  *Backend and Frontend Webapp work* - [Migueljfs](https://github.com/Migueljfs)
+* **Diogo Medeiros** - *Backend and Frontend Webapp work* - [diogom11](https://github.com/diogom11)
 * **Luis Goncalves** - *Some backend but mostly iOS app work* - [ndest10](https://github.com/ndest10)
 
 ## License
