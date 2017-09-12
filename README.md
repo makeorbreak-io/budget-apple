@@ -1,52 +1,42 @@
-pidrobe
-==============
+# PiDrobe
 
-Template for a simple Vaadin application that only requires a Servlet 3.0 container to run.
+Ever woke up not knowing what to wear? PiDrobe generates Outfits based on external weather on your area.
 
+## Make or Break
 
-Workflow
-========
+This project was entirely built under 48 hours for the Hackthon [**Make or Break** (Porto summer of Code)](https://portosummerofcode.com/) that occurred in 8 to 10 of September in 2017.
 
-To compile the entire project, run "mvn install".
+## Built With
 
-To run the application, run "mvn jetty:run" and open http://localhost:8080/ .
+### Backend and Webapp
 
-To produce a deployable production mode WAR:
-- change productionMode to true in the servlet class configuration (nested in the UI class)
-- run "mvn clean package"
-- test the war file with "mvn jetty:run-war"
+* [Java](https://www.java.com/) - The programming language used for the backend and web app
+* [Vaadin](https://vaadin.com/) - The web framework used
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [JAX-RS](https://github.com/jax-rs) - API for RESTful Web Services
+* [Json-Simple](https://github.com/fangyidong/json-simple) - Simple json decoder and encoder
+* [OpenWeatherMap](https://openweathermap.org/api) - API for current weather data
+* [News Api](https://newsapi.org/) - API for news
+* [Jetty](http://www.eclipse.org/jetty/) - Servlet Engine and Http Server used
 
-Client-Side compilation
--------------------------
+### iOS app
 
-The generated maven project is using an automatically generated widgetset by default. 
-When you add a dependency that needs client-side compilation, the maven plugin will 
-automatically generate it for you. Your own client-side customisations can be added into
-package "client".
+* [Swift](https://developer.apple.com/swift/) - The programming language used for the iOS app
+* [ChromaColorPicker](https://github.com/joncardasis/ChromaColorPicker) - An amazing color picker for iOS in swift
 
-Debugging client side code
-  - run "mvn vaadin:run-codeserver" on a separate console while the application is running
-  - activate Super Dev Mode in the debug window of the application
+## Authors
 
-Developing a theme using the runtime compiler
--------------------------
+* **Ricardo Silveira** -  *Backend and Frontend Webapp work* - [ndest10](https://github.com/ndest10)
+* **Miguel Cardoso** -  *Backend and Frontend Webapp work* - [ndest10](https://github.com/ndest10)
+* **Diogo Medeiros** - *Backend and Frontend Webapp work* - [ndest10](https://github.com/ndest10)
+* **Luis Goncalves** - *Some backend but mostly iOS app work* - [ndest10](https://github.com/ndest10)
 
-When developing the theme, Vaadin can be configured to compile the SASS based
-theme at runtime in the server. This way you can just modify the scss files in
-your IDE and reload the browser to see changes.
+## License
 
-To use the runtime compilation, open pom.xml and comment out the compile-theme 
-goal from vaadin-maven-plugin configuration. To remove a possibly existing 
-pre-compiled theme, run "mvn clean package" once.
+This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
 
-When using the runtime compiler, running the application in the "run" mode 
-(rather than in "debug" mode) can speed up consecutive theme compilations
-significantly.
+## Acknowledgments
 
-It is highly recommended to disable runtime compilation for production WAR files.
-
-Using Vaadin pre-releases
--------------------------
-
-If Vaadin pre-releases are not enabled by default, use the Maven parameter
-"-P vaadin-prerelease" or change the activation default value of the profile in pom.xml .
+* Thank you **Make or Break** Organization for letting us participate in this amazing hackathon!
+* Hat tip to all these amazing open source libraries we used
+* To all the coffees that gave us energy to finish this :D
